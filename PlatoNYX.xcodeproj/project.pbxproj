@@ -19,6 +19,7 @@
 		4B11F3B21D52B41600BDE3D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B11F3B01D52B41600BDE3D9 /* LaunchScreen.storyboard */; };
 		4B11F3BD1D52B41600BDE3D9 /* PlatoNYXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F3BC1D52B41600BDE3D9 /* PlatoNYXTests.m */; };
 		4B11F3C81D52B41600BDE3D9 /* PlatoNYXUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F3C71D52B41600BDE3D9 /* PlatoNYXUITests.m */; };
+		4B13AA341D7EFA4C0061F2EB /* NotiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B13AA331D7EFA4C0061F2EB /* NotiListViewController.m */; };
 		4B17B6FF1D6911CC00955AA5 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B17B6FE1D6911CC00955AA5 /* ActivityTableViewCell.m */; };
 		4B17B7021D691E5D00955AA5 /* NZCircularImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B17B7011D691E5D00955AA5 /* NZCircularImageView.m */; };
 		4B190B031D58E3E200DC3AD8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B190AFC1D58E3E200DC3AD8 /* BaseViewController.m */; };
@@ -320,6 +321,8 @@
 		4B11F3C31D52B41600BDE3D9 /* PlatoNYXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlatoNYXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B11F3C71D52B41600BDE3D9 /* PlatoNYXUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlatoNYXUITests.m; sourceTree = "<group>"; };
 		4B11F3C91D52B41600BDE3D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B13AA321D7EFA4C0061F2EB /* NotiListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiListViewController.h; sourceTree = "<group>"; };
+		4B13AA331D7EFA4C0061F2EB /* NotiListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiListViewController.m; sourceTree = "<group>"; };
 		4B17B6FD1D6911CC00955AA5 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
 		4B17B6FE1D6911CC00955AA5 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
 		4B17B7001D691E5D00955AA5 /* NZCircularImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NZCircularImageView.h; path = Libraries/NZCircular/NZCircularImageView.h; sourceTree = "<group>"; };
@@ -919,6 +922,8 @@
 		4B7FFC661D77DB2E00C0E16E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				4B13AA321D7EFA4C0061F2EB /* NotiListViewController.h */,
+				4B13AA331D7EFA4C0061F2EB /* NotiListViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1875,6 +1880,7 @@
 				4B860ACC1D557D3A002BD5C8 /* UIRefreshControl+AFNetworking.m in Sources */,
 				4BF536011D59801400379CA7 /* CustomCameraViewController.m in Sources */,
 				4B860AC41D557D3A002BD5C8 /* SPGooglePlacesAutocompleteUtilities.m in Sources */,
+				4B13AA341D7EFA4C0061F2EB /* NotiListViewController.m in Sources */,
 				4BF76CED1D6443D900C6835E /* MyActivityViewController.m in Sources */,
 				4B8609FF1D557D3A002BD5C8 /* DoAlertView.m in Sources */,
 				4BF536091D59801400379CA7 /* PBJFocusView.m in Sources */,
@@ -2117,7 +2123,7 @@
 				INFOPLIST_FILE = PlatoNYX/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ios.PlatoNYX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.platonyxapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2133,7 +2139,7 @@
 				INFOPLIST_FILE = PlatoNYX/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ios.PlatoNYX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.platonyxapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

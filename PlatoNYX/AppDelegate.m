@@ -93,7 +93,8 @@
     //    }
     //    self.window.rootViewController = navController;
     
-    [application setApplicationIconBadgeNumber:[[[userInfo objectForKey:@"aps"] objectForKey:@"badge"] intValue]];
-    
+    [application setApplicationIconBadgeNumber:[[[userInfo objectForKey:@"aps"] objectForKey:@"badgecount"] intValue]];
+//    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:[[[userInfo objectForKey:@"aps"] objectForKey:@"badgecount"] intValue]];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:"ReceiveNotification" object:nil userInfo:userInfo];
 }
 @end

@@ -25,6 +25,10 @@
     mainArray = [self.joinedUserArray mutableCopy];
 }
 
+//-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    
+//}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

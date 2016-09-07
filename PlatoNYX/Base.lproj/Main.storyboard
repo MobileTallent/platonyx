@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sign_bg" id="Tn0-9M-8el">
-                                <frame key="frameInset"/>
+                                <frame key="frameInset" maxX="1"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" id="weO-SE-7Te">
@@ -28,7 +28,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="1Q3-hd-wJk" customClass="TPKeyboardAvoidingScrollView">
-                                <frame key="frameInset"/>
+                                <frame key="frameInset" maxX="1"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" id="MyT-tc-3nT">
@@ -148,7 +148,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" id="X71-EI-ZNw">
-                                        <rect key="frame" x="0.0" y="0.0" width="5115" height="9085"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="6071" height="10000"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" misplaced="YES" id="UG7-tL-i6F">
@@ -176,7 +176,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" misplaced="YES" id="wNZ-Cc-40e">
-                                                <frame key="frameInset" minY="75.26%" height="3"/>
+                                                <frame key="frameInset" minY="75.25%" height="3"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
@@ -230,11 +230,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sign_bg" id="u2s-ll-x4j">
-                                <frame key="frameInset"/>
+                                <frame key="frameInset" minY="-1" maxX="1" maxY="1"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8oe-Pm-VXT" customClass="TPKeyboardAvoidingScrollView">
-                                <frame key="frameInset"/>
+                                <frame key="frameInset" minY="-1" maxX="1" maxY="1"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="ngK-ap-bmW">
@@ -439,11 +439,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sign_bg" id="UFe-Im-Lez">
-                                <frame key="frameInset" minY="-1"/>
+                                <frame key="frameInset" minX="-1" minY="-2"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="G2m-lb-FDb" customClass="TPKeyboardAvoidingScrollView">
-                                <frame key="frameInset" minY="-1"/>
+                                <frame key="frameInset" minX="-1" minY="-2"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="hbg-jR-yef">
@@ -551,11 +551,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="Idk-Fw-MIF" userLabel="navBar">
-                                <frame key="frameInset" minX="-1" height="64" maxX="1"/>
+                                <frame key="frameInset" minX="-3" height="64" maxX="3"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hIh-us-MzF">
-                                        <frame key="frameInset" minX="7" minY="15.62%" width="15.34%" height="85.94%"/>
+                                        <frame key="frameInset" minX="6" minY="15.62%" width="15.61%" height="85.94%"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_arrow"/>
                                         <connections>
@@ -563,12 +563,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eZC-L1-H7G">
-                                        <frame key="frameInset" minY="62.50%" width="26" height="24" maxX="41"/>
+                                        <frame key="frameInset" minY="60.00%" width="26" height="24" maxX="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="noti_bg"/>
+                                        <connections>
+                                            <action selector="menuNotiClicked:" destination="g5n-bA-FtX" eventType="touchUpInside" id="N51-1o-UJg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5vX-Tk-0IL">
-                                        <frame key="frameInset" minY="62.50%" width="25" height="24" maxX="10"/>
+                                        <frame key="frameInset" minY="60.00%" width="25" height="24" maxX="10"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="settings"/>
                                     </button>
@@ -576,15 +579,15 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="po6-yy-nb6">
-                                <frame key="frameInset" minX="-1" minY="11.62%" height="20.95%" maxX="1"/>
+                                <frame key="frameInset" minX="-3" minY="11.62%" height="21.13%" maxX="3"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_photo.png" id="ccy-JW-B6A">
-                                        <frame key="frameInset" minX="10" height="73.27%" maxX="11" maxY="18"/>
+                                        <frame key="frameInset" minX="10" height="73.47%" maxX="12" maxY="22"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wht-wG-I9f">
-                                        <frame key="frameInset" minX="57" height="15.97%" maxX="58"/>
+                                        <frame key="frameInset" minX="57" height="16.67%" maxX="58"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -594,130 +597,137 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" id="k1w-6O-dJk">
-                                <frame key="frameInset" minX="-1" height="63.13%" maxX="1" maxY="69"/>
+                                <frame key="frameInset" height="63.20%" maxY="68"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="profile_table_bg" id="4TT-V4-aOD">
-                                        <frame key="frameInset"/>
+                                        <frame key="frameInset" minX="1"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" id="VY5-MC-zY4">
-                                        <frame key="frameInset" minX="15" minY="2.62%" height="86" maxX="16"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <view contentMode="scaleToFill" misplaced="YES" id="GtW-ei-uHp">
-                                        <frame key="frameInset" minY="53.60%" height="93"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" id="74a-Wx-QWi">
+                                        <frame key="frameInset"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" misplaced="YES" id="5Oe-UU-HQN">
-                                                <frame key="frameInset" minY="0.0%" height="1"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" id="VY5-MC-zY4">
+                                                <frame key="frameInset" minX="15" minY="5" height="87" maxX="15"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <view contentMode="scaleToFill" misplaced="YES" id="GtW-ei-uHp">
+                                                <frame key="frameInset" minX="1" minY="120" maxY="103"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" id="5Oe-UU-HQN">
+                                                        <frame key="frameInset" minY="0.0%"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker_icon" id="Mde-al-v1N">
+                                                        <frame key="frameInset" minX="19" minY="5.63%" width="22" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HgM-jg-m0p">
+                                                        <frame key="frameInset" minX="50" minY="5.63%" width="39.03%" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beyoglu" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bcG-AQ-Pyj">
+                                                        <frame key="frameInset" minY="5.63%" width="41.06%" height="22" maxX="17"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" id="BhU-99-aDV">
+                                                        <frame key="frameInset" minY="33.33%"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time_icon" id="8n4-du-Y9g">
+                                                        <frame key="frameInset" minX="22" minY="50.00%" width="18" height="17"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zaman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mez-gu-cpI">
+                                                        <frame key="frameInset" minX="50" minY="50.00%" width="42.75%" height="19"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13 Ekim 2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nFY-YT-BcS">
+                                                        <frame key="frameInset" minY="50.00%" width="41.06%" height="19" maxX="17"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" id="Mmg-BU-vm4">
+                                                        <frame key="frameInset" minY="67.74%"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="price_icon" id="5pT-Q6-Fwc">
+                                                        <frame key="frameInset" minX="22" minY="94.52%" width="18" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fiyat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1yd-O1-2fA">
+                                                        <frame key="frameInset" minX="50" minY="94.37%" width="39.03%" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B8C-WU-ad3">
+                                                        <frame key="frameInset" minY="95.71%" width="41.06%" height="23" maxX="17"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" id="thc-bI-euY">
+                                                        <frame key="frameInset" minY="102.17%" height="1"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="marker_icon" id="Mde-al-v1N">
-                                                <frame key="frameInset" minX="19" minY="6.85%" width="22" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Yer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HgM-jg-m0p">
-                                                <frame key="frameInset" minX="50" minY="5.56%" width="38.89%" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SMn-mH-sEO">
+                                                <frame key="frameInset" width="19.14%" height="31" maxX="17" maxY="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Katıl">
+                                                    <color key="titleColor" red="0.93725490199999995" green="0.1333333333" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="joinActivity:" destination="g5n-bA-FtX" eventType="touchUpInside" id="mr9-t1-35W"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Katıl tuşuna bastıktan sonra detaylı etkinlik dresini ve katılanların kim olduğunu aşağıdaki menüden görebilirsiniz." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oJI-sH-ALA">
+                                                <frame key="frameInset" minX="15" width="75.41%" height="74" maxY="10"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                                 <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Beyoglu" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bcG-AQ-Pyj">
-                                                <frame key="frameInset" minY="5.56%" width="41.12%" height="21" maxX="16"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" id="BhU-99-aDV">
-                                                <frame key="frameInset" minY="32.97%" height="2"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="time_icon" id="8n4-du-Y9g">
-                                                <frame key="frameInset" minX="22" minY="50.00%" width="18" height="17"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Zaman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mez-gu-cpI">
-                                                <frame key="frameInset" minX="50" minY="50.00%" width="42.59%" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="13 Ekim 2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nFY-YT-BcS">
-                                                <frame key="frameInset" minY="50.00%" width="41.12%" height="21" maxX="16"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" id="Mmg-BU-vm4">
-                                                <frame key="frameInset" minY="67.39%" height="1"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="price_icon" id="5pT-Q6-Fwc">
-                                                <frame key="frameInset" minX="22" minY="89.33%" width="18" height="18"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fiyat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1yd-O1-2fA">
-                                                <frame key="frameInset" minX="50" minY="91.78%" width="38.89%" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B8C-WU-ad3">
-                                                <frame key="frameInset" minY="94.37%" width="41.12%" height="22" maxX="16"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" id="thc-bI-euY">
-                                                <frame key="frameInset" minY="100.00%"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SMn-mH-sEO">
-                                        <frame key="frameInset" minY="85.61%" width="19.08%" height="30" maxX="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="Katıl">
-                                            <color key="titleColor" red="0.93725490199999995" green="0.1333333333" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="joinActivity:" destination="g5n-bA-FtX" eventType="touchUpInside" id="mr9-t1-35W"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Katıl tuşuna bastıktan sonra detaylı etkinlik dresini ve katılanların kim olduğunu aşağıdaki menüden görebilirsiniz." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oJI-sH-ALA">
-                                        <frame key="frameInset" minX="15" minY="232" width="231" height="74"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
-                                        <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" misplaced="YES" id="OTG-FA-UNH">
-                                <frame key="frameInset" minX="-1" height="68" maxX="1" maxY="1"/>
+                                <frame key="frameInset" height="68"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c3r-OF-Yma">
-                                        <frame key="frameInset" minX="15" minY="48.65%" width="42.30%" height="31"/>
+                                        <frame key="frameInset" minX="15" minY="47.22%" width="42.62%" height="32"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Katılanlar">
                                             <color key="titleColor" red="0.93725490199999995" green="0.1333333333" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -727,7 +737,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RuG-lg-aYr">
-                                        <frame key="frameInset" minY="48.65%" width="42.76%" height="31" maxX="16"/>
+                                        <frame key="frameInset" minY="47.22%" width="42.76%" height="32" maxX="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Etkinlik Detayları">
                                             <color key="titleColor" red="0.93725490199999995" green="0.1333333333" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -750,6 +760,7 @@
                         <outlet property="detailActivityBtn" destination="RuG-lg-aYr" id="y9K-pM-zE4"/>
                         <outlet property="joinActivityBtn" destination="SMn-mH-sEO" id="lZt-2Q-9ic"/>
                         <outlet property="namelbl" destination="wht-wG-I9f" id="jCD-fI-Yhb"/>
+                        <outlet property="notiBtn" destination="eZC-L1-H7G" id="kzf-4U-rVG"/>
                         <outlet property="photoImg" destination="ccy-JW-B6A" id="Wfk-Dg-qO5"/>
                         <outlet property="placelbl" destination="bcG-AQ-Pyj" id="fuH-ma-Wj0"/>
                         <outlet property="pricelbl" destination="B8C-WU-ad3" id="Bx7-9T-meL"/>
@@ -771,7 +782,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_banner" id="FXo-WS-CbJ">
-                                <frame key="frameInset" minX="-5" height="25.70%" maxX="-4"/>
+                                <frame key="frameInset" minX="-6" height="25.70%" maxX="-4"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" id="AeL-Jj-7nz">
@@ -779,7 +790,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="baI-Yh-ffs">
-                                        <frame key="frameInset" minX="7" minY="15.62%" width="15.34%" height="87.50%"/>
+                                        <frame key="frameInset" minX="6" minY="15.62%" width="15.61%" height="89.06%"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="menu"/>
                                         <connections>
@@ -787,17 +798,20 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ocT-RF-BtV">
-                                        <frame key="frameInset" minY="63.16%" width="25" height="26" maxX="45"/>
+                                        <frame key="frameInset" minY="62.16%" width="25" height="27" maxX="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="noti_bg"/>
+                                        <connections>
+                                            <action selector="menuNotiClicked:" destination="GnT-ej-djD" eventType="touchUpInside" id="fAF-4q-Qyg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H9d-Pa-37I">
-                                        <frame key="frameInset" minY="63.16%" width="26" height="26" maxX="13"/>
+                                        <frame key="frameInset" minY="62.16%" width="26" height="27" maxX="13"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="settings"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profilim" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XPP-91-f0g">
-                                        <frame key="frameInset" minX="37.19%" minY="63.16%" width="25.63%" height="26"/>
+                                        <frame key="frameInset" minX="37.19%" minY="62.16%" width="25.63%" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -808,19 +822,19 @@
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" id="FdR-dx-y6d">
                                 <frame key="frameInset" minX="-1" minY="64" height="144" maxX="1"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" id="UYH-kn-deN">
-                                        <frame key="frameInset" minX="31.88%" minY="1.39%" width="36.25%" height="83.33%"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <frame key="frameInset" minX="51.00%" minY="8.33%" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="profile_photo" id="vqR-PR-nap">
                                                 <frame key="frameInset" width="120" height="120"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="camera" id="qtP-P6-s20">
-                                                <frame key="frameInset" minX="47.78%" width="26" height="24" maxY="4"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <frame key="frameInset" minX="48" width="26" height="23" maxY="4"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                             </imageView>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0x8-um-4xJ">
                                                 <frame key="frameInset" width="123" height="120"/>
@@ -833,8 +847,8 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kullanci Adi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s6B-Tp-EiJ">
-                                        <frame key="frameInset" minX="26.25%" minY="86.81%" width="47.50%" height="13.19%"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <frame key="frameInset" minX="26.25%" minY="100.00%" width="47.50%" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -843,8 +857,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" id="lCs-5t-Dcl">
-                                <frame key="frameInset" minX="-1" minY="36.80%" height="52.64%" maxX="1"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minX="-1" minY="209" maxX="1" maxY="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="profile_table_bg" id="wnq-Kd-hzx">
                                         <frame key="frameInset" width="320" height="299"/>
@@ -858,12 +872,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" misplaced="YES" id="DUU-MD-KgU">
-                                        <frame key="frameInset" minX="45" minY="75" width="1" maxY="29"/>
+                                        <frame key="frameInset" minX="45" minY="75" width="1" maxY="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="72" sectionHeaderHeight="1" sectionFooterHeight="1" id="dEb-f2-Hjg">
-                                        <frame key="frameInset" height="87.66%" maxY="-9"/>
+                                        <frame key="frameInset" height="87.70%" maxY="-10"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -973,6 +987,7 @@
                     <connections>
                         <outlet property="backLineView" destination="DUU-MD-KgU" id="Bdo-Ua-HQV"/>
                         <outlet property="coverPhoto" destination="FXo-WS-CbJ" id="lvc-Zs-QpC"/>
+                        <outlet property="notiBtn" destination="ocT-RF-BtV" id="LD0-Uy-O9x"/>
                         <outlet property="onActivityBtn" destination="Sto-Ps-3FY" id="GM4-tE-jAL"/>
                         <outlet property="postTableView" destination="dEb-f2-Hjg" id="jkW-Xi-Ooi"/>
                         <outlet property="profileImgView" destination="vqR-PR-nap" id="9h8-ZO-iTl"/>
@@ -1045,6 +1060,9 @@
                                         <frame key="frameInset" minY="62.16%" width="26" height="27" maxX="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="noti_bg"/>
+                                        <connections>
+                                            <action selector="menuNotiClicked:" destination="xnw-Ya-SUY" eventType="touchUpInside" id="1tP-Hq-ti1"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profilim" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="drP-Eh-D3s">
                                         <frame key="frameInset" minX="39.06%" minY="62.16%" width="25.63%" height="27"/>
@@ -1290,6 +1308,7 @@
                         <outlet property="genderlbl" destination="gKF-hP-lTI" id="hDt-nz-fHP"/>
                         <outlet property="kidslbl" destination="sc9-9S-ED7" id="xEa-up-Lg0"/>
                         <outlet property="namelbl" destination="lyw-85-SbD" id="GVG-c5-BEs"/>
+                        <outlet property="notiBtn" destination="tJU-eg-U0s" id="Dyr-Il-DkJ"/>
                         <outlet property="profileImgView" destination="jwY-mq-bQP" id="rkb-i0-caM"/>
                         <outlet property="signlbl" destination="pY2-f7-wX1" id="0AG-CG-IIS"/>
                     </connections>
@@ -1311,22 +1330,22 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="FIH-vq-pTh">
-                                        <frame key="frameInset" minX="15" height="54.93%" maxX="16"/>
+                                        <frame key="frameInset" minX="15" height="55.11%" maxX="16"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Etkinlik Detayları" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GnU-9Y-KQJ">
-                                                <frame key="frameInset" minX="18.97%" minY="21.31%" width="62.07%" height="21"/>
+                                                <frame key="frameInset" minX="18.97%" minY="21.23%" width="62.07%" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_photo.png" id="WRy-lR-JtI">
-                                                <frame key="frameInset" minY="41.38%" height="80"/>
+                                                <frame key="frameInset" minY="41.20%" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="dtT-UB-4Z5">
-                                                <frame key="frameInset" minY="68.91%" width="100.00%" height="25.64%"/>
+                                                <frame key="frameInset" minY="68.69%" width="100.00%" height="25.56%"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -1335,7 +1354,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Etkinlik Detayları" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J9M-hp-HLe">
-                                                <frame key="frameInset" minY="63.57%" width="53.79%" height="21"/>
+                                                <frame key="frameInset" minY="63.36%" width="53.79%" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1345,7 +1364,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="ZHZ-16-WLN">
-                                        <frame key="frameInset" height="45.07%" maxX="1"/>
+                                        <frame key="frameInset" height="44.89%" maxX="1"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="gpi-2g-PPd">
@@ -1363,26 +1382,26 @@
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="mGq-1F-CCt">
-                                                <frame key="frameInset" minX="15" minY="50" height="72.82%" maxX="15"/>
+                                                <frame key="frameInset" minX="15" minY="50" height="73.17%" maxX="15"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </mapView>
                                             <view contentMode="scaleToFill" id="Cla-V2-M2D">
-                                                <frame key="frameInset" height="38.34%" maxY="-70"/>
+                                                <frame key="frameInset" height="38.15%" maxY="-70"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker_icon" id="ypF-0F-Y3E">
-                                                        <frame key="frameInset" minX="19" minY="8.49%" width="20" height="19"/>
+                                                        <frame key="frameInset" minX="19" minY="8.57%" width="20" height="19"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7qY-10-sjT">
-                                                        <frame key="frameInset" minX="47" minY="8.57%" width="50.92%" height="20"/>
+                                                        <frame key="frameInset" minX="47" minY="8.65%" width="50.92%" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="0.6588235294117647" green="0.67843137254901964" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DO3-BS-3PC">
-                                                        <frame key="frameInset" minX="20" minY="32.38%" width="46.33%" height="20"/>
+                                                        <frame key="frameInset" minX="20" minY="32.69%" width="46.33%" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="0.6588235294117647" green="0.67843137254901964" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1405,6 +1424,9 @@
                                         <frame key="frameInset" minY="63.16%" width="25" height="26" maxX="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="noti_bg"/>
+                                        <connections>
+                                            <action selector="menuNotiClicked:" destination="nbA-Ks-Y5E" eventType="touchUpInside" id="p6R-gw-84g"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="X0e-ff-hRK">
                                         <frame key="frameInset" minY="63.16%" width="25" height="26" maxX="10"/>
@@ -1433,6 +1455,7 @@
                         <outlet property="addresslbl" destination="DO3-BS-3PC" id="xf5-qI-fKD"/>
                         <outlet property="cityNamelbl" destination="7qY-10-sjT" id="ff2-zW-vAg"/>
                         <outlet property="mapView" destination="mGq-1F-CCt" id="iI3-gq-c0F"/>
+                        <outlet property="notiBtn" destination="Xfm-eb-bTb" id="Q9a-md-QMX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxE-qS-5fM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1448,7 +1471,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="Tu8-dZ-90f">
-                                <frame key="frameInset" minX="-1" maxX="1" maxY="1"/>
+                                <frame key="frameInset" minX="-1" minY="-1" maxX="1" maxY="1"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fotoğraflarım" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tJd-lL-UbU">
@@ -1459,11 +1482,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" id="u7v-kI-Ygo">
-                                        <frame key="frameInset" minY="99" height="47.01%"/>
+                                        <frame key="frameInset" minY="98" height="47.02%"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hKC-x9-D0m">
-                                                <frame key="frameInset" minX="15" minY="15" maxX="15" maxY="15"/>
+                                                <frame key="frameInset" minX="15" minY="15" maxX="16" maxY="16"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="X9h-jc-bkp" customClass="DraggableCollectionViewFlowLayout">
@@ -1509,22 +1532,22 @@
                                         <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="Pne-wS-L3j">
-                                        <frame key="frameInset" minX="15" minY="63.14%" height="17.11%" maxX="15"/>
+                                        <frame key="frameInset" minX="15" minY="63.20%" height="17.08%" maxX="16"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fotoğraf Yükle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rkh-aP-qbf">
-                                                <frame key="frameInset" minX="22.76%" minY="5" width="54.48%" height="21"/>
+                                                <frame key="frameInset" minX="22.84%" minY="5" width="54.33%" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.75686274509999996" green="0.82745098039999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" id="Amb-yI-io2">
-                                                <frame key="frameInset" height="67.35%" maxY="-1"/>
+                                                <frame key="frameInset" height="67.35%" maxX="-1" maxY="-1"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" id="Peq-Z4-wKP">
-                                                        <frame key="frameInset" minY="1" width="50.00%" maxY="-9"/>
+                                                        <frame key="frameInset" minY="1" width="50.00%" maxY="-13"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LEb-Ot-qfy">
@@ -1536,11 +1559,11 @@
                                                                 </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" id="2K1-cg-c5Q">
-                                                                <frame key="frameInset" minX="37.93%" minY="8" width="25.52%" height="48.49%"/>
+                                                                <frame key="frameInset" minX="37.93%" minY="7" width="25.52%" height="47.89%"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9ad-rM-bSb">
-                                                                <frame key="frameInset" minX="16.55%" width="69.66%" height="21" maxY="8"/>
+                                                                <frame key="frameInset" minX="16.55%" width="68.97%" height="21" maxY="8"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.75686274509999996" green="0.82745098039999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1550,11 +1573,11 @@
                                                         <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" id="11c-Tu-rCq">
-                                                        <frame key="frameInset" minY="1" width="49.83%" maxX="-1" maxY="-9"/>
+                                                        <frame key="frameInset" minY="1" width="49.83%" maxX="-1" maxY="-13"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zfW-ML-tjH">
-                                                                <frame key="frameInset" maxX="-29"/>
+                                                                <frame key="frameInset" maxX="-34"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <connections>
@@ -1562,7 +1585,7 @@
                                                                 </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder_icon" highlightedImage="folder_open_icon" id="ODC-FC-yXJ">
-                                                                <frame key="frameInset" minX="38.62%" minY="8" width="25.52%" height="48.49%"/>
+                                                                <frame key="frameInset" minX="38.62%" minY="7" width="25.52%" height="47.89%"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iAq-vB-U70">
@@ -1582,7 +1605,7 @@
                                         <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PMc-co-jzd">
-                                        <frame key="frameInset" minX="50.18%" width="41" height="39" maxY="35"/>
+                                        <frame key="frameInset" minX="50.18%" width="41" height="39" maxY="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.1333333333" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="add_icon"/>
@@ -1598,7 +1621,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PKA-Jk-CtK">
-                                        <frame key="frameInset" minX="8" minY="14.06%" width="15.39%" height="85.94%"/>
+                                        <frame key="frameInset" minX="7" minY="14.06%" width="15.34%" height="87.50%"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_arrow"/>
                                         <connections>
@@ -1606,12 +1629,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2r7-tX-ax9">
-                                        <frame key="frameInset" minY="63.16%" width="24" height="26" maxX="42"/>
+                                        <frame key="frameInset" minY="63.16%" width="25" height="26" maxX="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="noti_bg"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4S3-x1-k99">
-                                        <frame key="frameInset" minY="63.16%" width="26" height="26" maxX="9"/>
+                                        <frame key="frameInset" minY="63.16%" width="25" height="26" maxX="10"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="settings"/>
                                     </button>
@@ -1619,22 +1642,23 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" id="qs9-x0-2Yq">
-                                <frame key="frameInset" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <frame key="frameInset"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" id="QdN-9w-pPf">
+                                        <frame key="frameInset" minY="83" maxY="82"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.10980392160000001" green="0.14117647059999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="fvL-KR-tTF">
-                                        <frame key="frameInset" minY="30" width="30" height="30" maxX="16"/>
+                                        <frame key="frameInset" minY="23" width="52" height="52" maxX="8"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" image="close.png"/>
                                         <connections>
                                             <action selector="closeImageContent:" destination="fum-Kz-d3P" eventType="touchUpInside" id="hIJ-v2-SvY"/>
                                         </connections>
                                     </button>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" id="QdN-9w-pPf">
-                                        <frame key="frameInset" minY="83" width="320" height="403"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <color key="backgroundColor" red="0.10980392160000001" green="0.14117647059999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -1757,7 +1781,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
@@ -1771,7 +1795,7 @@
                                                         <view contentMode="scaleToFill" misplaced="YES" id="aBf-Xw-vbx">
                                                             <frame key="frameInset" height="1" maxY="1"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                            <color key="backgroundColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.25882352939999997" green="0.30588235289999999" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1810,6 +1834,9 @@
                                         <frame key="frameInset" minY="60.53%" width="25" height="26" maxX="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="noti_bg"/>
+                                        <connections>
+                                            <action selector="menuNotiClicked:" destination="1U6-Ct-BhR" eventType="touchUpInside" id="Htq-JW-WyE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wxh-gw-MK7">
                                         <frame key="frameInset" minY="60.53%" width="25" height="26" maxX="10"/>
@@ -1854,7 +1881,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oylamalar etkinliği takip eden 1 hafta içinde yapılabilir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bpf-LI-hCp">
-                                        <frame key="frameInset" minX="15" minY="1" height="29" maxX="21"/>
+                                        <frame key="frameInset" minX="15" minY="1" height="29" maxX="22"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -1874,22 +1901,22 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" id="feT-Jc-JLi">
-                                                            <frame key="frameInset" height="80" maxX="1"/>
+                                                            <frame key="frameInset" height="80" maxX="3"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" id="8su-cB-T9k">
-                                                                    <frame key="frameInset" minX="14" minY="0.0%" height="40" maxX="16"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                                <view contentMode="scaleToFill" misplaced="YES" id="8su-cB-T9k">
+                                                                    <frame key="frameInset" minX="13" height="40" maxX="13"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qrY-kO-mQT">
-                                                                            <frame key="frameInset" minY="50.00%" width="99" height="22"/>
+                                                                            <frame key="frameInset" minY="44.44%" width="99" height="22"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                             <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6o4-Cd-le1">
-                                                                            <frame key="frameInset" minY="50.00%" width="76" height="30" maxX="96"/>
+                                                                            <frame key="frameInset" minY="45.45%" width="76" height="29" maxX="97"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                             <state key="normal" title="Beğendim">
@@ -1897,7 +1924,7 @@
                                                                             </state>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Oj3-tl-Dta">
-                                                                            <frame key="frameInset" minY="50.00%" width="76" height="30"/>
+                                                                            <frame key="frameInset" minY="45.45%" width="77" height="29"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                             <state key="normal" title="Beğenmedim">
@@ -1908,18 +1935,18 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" id="c6o-no-O9K">
-                                                                    <frame key="frameInset" minX="14" minY="97.50%" height="40" maxX="16"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                                    <frame key="frameInset" minX="13" minY="38" height="40" maxX="14"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dkZ-yv-8xj">
-                                                                            <frame key="frameInset" minY="50.00%" width="83" height="22"/>
+                                                                            <frame key="frameInset" minY="44.44%" width="83" height="22"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                             <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3qc-Es-Rc4">
-                                                                            <frame key="frameInset" minY="50.00%" width="76" height="30"/>
+                                                                            <frame key="frameInset" minY="45.45%" width="77" height="29"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                             <state key="normal" title="Beğenmedim">
@@ -1927,7 +1954,7 @@
                                                                             </state>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Toi-Y3-PoY">
-                                                                            <frame key="frameInset" minY="50.00%" width="76" height="30" maxX="96"/>
+                                                                            <frame key="frameInset" minY="45.45%" width="76" height="29" maxX="97"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                             <state key="normal" title="Beğendim">
@@ -1941,38 +1968,38 @@
                                                             <color key="backgroundColor" red="0.10980392160000001" green="0.14117647059999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </view>
                                                         <view contentMode="scaleToFill" id="Ogb-5s-9af">
-                                                            <frame key="frameInset" minY="26.42%" height="1" maxX="1"/>
+                                                            <frame key="frameInset" minY="26.09%" height="1" maxX="3"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.13725490200000001" green="0.1764705882" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </view>
                                                         <view contentMode="scaleToFill" id="6sK-8r-jMP">
-                                                            <frame key="frameInset" height="73.24%" maxX="1" maxY="1"/>
+                                                            <frame key="frameInset" height="73.58%" maxX="3" maxY="1"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Katılanlar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="es9-OG-jKc">
-                                                                    <frame key="frameInset" minX="14" minY="1" width="23.28%" height="21"/>
+                                                                    <frame key="frameInset" minX="13" minY="1" width="23.36%" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="En fazla 2 kişiyi beğenebilirsiniz." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hDt-3e-Sq1">
-                                                                    <frame key="frameInset" minX="14" minY="24" width="69.51%" height="21"/>
+                                                                    <frame key="frameInset" minX="13" minY="24" width="69.41%" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" id="4Qd-Z4-VGk">
-                                                                    <frame key="frameInset" minY="51" maxX="-1" maxY="4"/>
+                                                                    <frame key="frameInset" minY="51" maxX="-1" maxY="5"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <prototypes>
                                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="joinedUserCell" selectionStyle="default" indentationWidth="10" rowHeight="50" id="owa-wD-isn" customClass="joinedUserTableViewCell">
-                                                                            <rect key="frame" x="0.0" y="1" width="320" height="50"/>
+                                                                            <rect key="frame" x="0.0" y="1" width="373" height="50"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="owa-wD-isn" id="utg-ak-aTH">
-                                                                                <frame key="frameInset" width="320" height="49"/>
+                                                                                <frame key="frameInset" width="373" height="49"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <subviews>
                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="profile_photo" id="Gja-IH-fJM">
@@ -2119,6 +2146,9 @@
                                         <frame key="frameInset" minY="63.16%" width="24" height="26" maxX="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="noti_bg"/>
+                                        <connections>
+                                            <action selector="menuNotiClicked:" destination="Pi7-Cc-op0" eventType="touchUpInside" id="WHb-nM-V1H"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="m32-wI-0a2">
                                         <frame key="frameInset" minY="63.16%" width="26" height="26" maxX="9"/>
@@ -2154,7 +2184,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="contact_bg" id="VHy-yY-kDh">
-                                        <frame key="frameInset"/>
+                                        <frame key="frameInset" maxX="-1"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="F9v-Cn-bB8">
@@ -2192,10 +2222,78 @@
                         </subviews>
                         <color key="backgroundColor" red="0.10980392156862745" green="0.14117647058823529" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="notiBtn" destination="SMN-yM-QMu" id="vPp-Fo-kgC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouL-qE-Olx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2205" y="-1490"/>
+        </scene>
+        <!--Noti List View Controller-->
+        <scene sceneID="fO8-un-Ung">
+            <objects>
+                <viewController storyboardIdentifier="notiListVC" id="26d-nI-Sbc" customClass="NotiListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DSs-YN-4zZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" id="ZfP-uU-Ad9" userLabel="navBar">
+                                <frame key="frameInset" minX="-1" height="64" maxX="2"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sNj-Fr-Ibl">
+                                        <frame key="frameInset" minX="8" minY="100.00%" width="46" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="back_arrow"/>
+                                        <connections>
+                                            <action selector="menuBackClicked:" destination="26d-nI-Sbc" eventType="touchUpInside" id="nlY-B9-Ctf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UK3-39-9Gj">
+                                        <frame key="frameInset" minY="62.16%" width="25" height="27" maxX="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="noti_bg"/>
+                                        <connections>
+                                            <action selector="menuNotiClicked:" destination="26d-nI-Sbc" eventType="touchUpInside" id="RE3-Pi-Pkk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YMm-bU-hyX">
+                                        <frame key="frameInset" minY="62.16%" width="25" height="27" maxX="10"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="settings"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bildirimlerim" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jFy-gA-LvC">
+                                <frame key="frameInset" minX="27.50%" minY="50" width="44.69%" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.6588235294" green="0.67843137249999996" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" id="lCH-Qz-f6n">
+                                <frame key="frameInset" minX="-1" height="88.91%" maxX="1"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="noti_view_bg" id="tYg-L2-eNi">
+                                        <frame key="frameInset" height="95.64%"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.14117647059999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="notiBtn" destination="UK3-39-9Gj" id="LlF-CI-p0u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IoL-6Y-BB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="-1489"/>
         </scene>
         <!--Activity List View Controller-->
         <scene sceneID="aUI-TZ-MYa">
@@ -2213,6 +2311,9 @@
                                         <frame key="frameInset" minY="58.54%" width="28" height="23" maxX="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="noti_bg"/>
+                                        <connections>
+                                            <action selector="menuNotiClicked:" destination="3pK-NX-fRl" eventType="touchUpInside" id="Qcy-b7-iTU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ePV-x5-Lu9">
                                         <frame key="frameInset" minY="58.54%" width="24" height="23" maxX="11"/>
@@ -2238,7 +2339,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="6Ok-E0-BGe">
-                                <frame key="frameInset" minX="-2" height="88.52%" maxX="2" maxY="2"/>
+                                <frame key="frameInset" minX="-2" height="88.34%" maxX="2" maxY="2"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katilanlar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YhL-7N-2tA">
@@ -2249,7 +2350,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="8iC-gr-Kug">
-                                        <frame key="frameInset" minX="15" minY="51" maxX="18"/>
+                                        <frame key="frameInset" minX="15" minY="52" maxX="18"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HXr-jv-dVx">
@@ -2323,6 +2424,7 @@
                     <navigationItem key="navigationItem" id="5kE-aO-Awt"/>
                     <connections>
                         <outlet property="attendCollectionView" destination="8iC-gr-Kug" id="5di-rs-db1"/>
+                        <outlet property="notiBtn" destination="luP-k9-GSz" id="1D9-Bs-YRa"/>
                         <segue destination="xnw-Ya-SUY" kind="push" id="hJD-sZ-x3x"/>
                     </connections>
                 </viewController>
@@ -2484,6 +2586,7 @@
         <image name="marker_icon" width="50" height="50"/>
         <image name="menu" width="25" height="25"/>
         <image name="noti_bg" width="25" height="25"/>
+        <image name="noti_view_bg" width="375" height="565"/>
         <image name="price_icon" width="25" height="25"/>
         <image name="profile_banner" width="400" height="224"/>
         <image name="profile_photo" width="92" height="92"/>

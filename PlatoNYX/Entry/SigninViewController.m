@@ -48,6 +48,8 @@
         if([commonUtils getUserDefault:@"user_apns_id"] != nil) {
             [paramDic setObject:[commonUtils getUserDefault:@"user_apns_id"] forKey:@"user_apns_id"];
             [self requestAPILogin:paramDic];
+            
+            NSLog(@"apns_id = %@", [commonUtils getUserDefault:@"user_apns_id"]);
         } else {
             [appController.vAlert doAlert:@"Notice" body:@"Failed to get your device token.\nTherefore, you will not be able to receive notification for the new activities." duration:2.0f done:^(DoAlertView *alertView) {
                 [self requestAPILogin:paramDic];
@@ -73,6 +75,7 @@
         NSDecimalNumber *status = [result objectForKey:@"status"];
         if([status intValue] == 1) {
             appController.currentUser = [result objectForKey:@"current_user"];
+            NSLog(@"%@", appController.currentUser);
 //            appController.rePostArray = [result objectForKey:@"posts"];
             [commonUtils setUserDefaultDic:@"current_user" withDic:appController.currentUser];
             

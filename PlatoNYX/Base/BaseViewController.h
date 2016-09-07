@@ -13,8 +13,9 @@
 @property (nonatomic, assign) BOOL isLoadingBase;
 
 @property (nonatomic, strong) IBOutlet UIView *topNavBarView, *containerView, *noContentView;
+@property (strong, nonatomic) IBOutlet UIButton *notiBtn;
 
 - (IBAction)menuClicked:(id)sender;
 - (IBAction)menuBackClicked:(id)sender;
-- (IBAction)menuPostBarkClicked:(id)sender;
+- (IBAction)menuNotiClicked:(id)sender;
 @end

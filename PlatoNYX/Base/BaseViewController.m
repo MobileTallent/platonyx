@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "NotiListViewController.h"
 //#import "CustomCameraViewController.h"
 
 @interface BaseViewController ()
@@ -30,6 +31,8 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
     self.isLoadingBase = NO;
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:@"ReceiveNotification" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +53,17 @@
     if(self.isLoadingBase) return;
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (IBAction)menuNotiClicked:(id)sender {
+    if(self.isLoadingBase) return;
+    
+    NotiListViewController *mainViewController;
+    UINavigationController *navController;
+    
+    mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"notiListVC"];
+    navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+    self.sidePanelController.centerPanel = navController;
+}
+
 //- (IBAction)menuPostBarkClicked:(id)sender {
 //    if(self.isLoadingBase) return;
 //    
@@ -61,4 +75,8 @@
 //    
 //}
 
+//- (void) receivedNotification:(NSNotification *) notification {
+//    NSDictionary *dic = notification.userInfo;
+//}
+//
 @end
