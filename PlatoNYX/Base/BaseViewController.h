@@ -18,4 +18,6 @@
 - (IBAction)menuClicked:(id)sender;
 - (IBAction)menuBackClicked:(id)sender;
 - (IBAction)menuNotiClicked:(id)sender;
+- (IBAction)menuSettingsClicked:(id)sender;
+
 @end

@@ -567,10 +567,10 @@
         if (!_selectedSizeView.hidden) {
             UIImage *fgImage = [self imageWithView:_selectedSizeView];
             UIImage *bgImage = _previewImageView.image;
-            CGSize fgSize = fgImage.size;
-            CGSize bgSize = bgImage.size;
-            
-            CGPoint center = CGPointMake(bgSize.width / 4, bgSize.height / 4);
+//            CGSize fgSize = fgImage.size;
+//            CGSize bgSize = bgImage.size;
+//            
+//            CGPoint center = CGPointMake(bgSize.width / 4, bgSize.height / 4);
             
             //finalImage = [self drawImage:fgImage inImage:bgImage atPoint:CGPointMake(center.x - fgSize.width / 2, center.y - fgSize.height / 2)];
             CGRect a = [_selectedSizeView convertRect:_selectedSizeView.bounds toView:_previewImageView];
@@ -758,7 +758,7 @@
 
     }
     
-    float renderWidth, renderHeight, renderScale;
+    float renderWidth, renderHeight;// renderScale;
     
     renderWidth = naturalSize.width;
     renderHeight = naturalSize.height;

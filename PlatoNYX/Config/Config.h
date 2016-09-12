@@ -2,8 +2,8 @@
 //  Config.m
 
 
-//#define SERVER_URL @"http://172.16.1.249/platonyx_api"
-#define SERVER_URL @"http://platonyx.com/platonyx_api"
+#define SERVER_URL @"http://172.16.1.249/platonyx_api"
+//#define SERVER_URL @"http://platonyx.com/platonyx_api"
 
 #define API_KEY @"f1e3c46751ecd6e4cff88ffd948794cc"
 

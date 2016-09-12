@@ -112,6 +112,7 @@
     if ([segue.identifier isEqualToString:@"goAttendants"]) {
         ActivityListViewController *controller = segue.destinationViewController;
         controller.postId = [_itemDic objectForKey:@"post_id"];
+        controller.postName = [_itemDic objectForKey:@"post_caption"];
     }else {
         ActivityDetailViewController *controller = segue.destinationViewController;
         controller.postDic = [_itemDic mutableCopy];

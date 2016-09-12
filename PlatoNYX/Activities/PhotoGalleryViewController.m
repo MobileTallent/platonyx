@@ -42,17 +42,17 @@
     [commonUtils cropCircleButton:self.addBtn];
     popupView.hidden = YES;
     
+//    int kCellsPerRow = 3, kCellsPerCol = 2;
+//    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*) _photoCollectionView.collectionViewLayout;
+//    CGFloat availableWidthForCells = CGRectGetWidth(_photoCollectionView.frame) - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (kCellsPerRow - 1);
+//    CGFloat cellWidth = availableWidthForCells / (float)kCellsPerRow;
+//    
+//    CGFloat availableHeightForCells = CGRectGetHeight(_photoCollectionView.frame) - flowLayout.sectionInset.top - flowLayout.sectionInset.bottom - flowLayout.minimumInteritemSpacing * (kCellsPerCol - 1);
+//    CGFloat cellHeight = availableHeightForCells / (float)kCellsPerCol;
+//    
+//    flowLayout.itemSize = CGSizeMake(cellWidth, cellHeight);
+    
     [self initData];
-    
-    int kCellsPerRow = 3, kCellsPerCol = 2;
-    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*) _photoCollectionView.collectionViewLayout;
-    CGFloat availableWidthForCells = CGRectGetWidth(_photoCollectionView.frame) - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (kCellsPerRow - 1);
-    CGFloat cellWidth = availableWidthForCells / (float)kCellsPerRow;
-    
-    CGFloat availableHeightForCells = CGRectGetHeight(_photoCollectionView.frame) - flowLayout.sectionInset.top - flowLayout.sectionInset.bottom - flowLayout.minimumInteritemSpacing * (kCellsPerCol - 1);
-    CGFloat cellHeight = availableHeightForCells / (float)kCellsPerCol;
-    
-    flowLayout.itemSize = CGSizeMake(cellWidth, cellHeight);
     
     imageContentView.hidden = YES;
 }

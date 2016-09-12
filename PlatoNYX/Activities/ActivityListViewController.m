@@ -17,6 +17,8 @@
 }
 @property (strong, nonatomic) IBOutlet UICollectionView *attendCollectionView;
 
+@property (strong, nonatomic) IBOutlet UILabel *actNamelbl;
+
 @end
 
 @implementation ActivityListViewController
@@ -26,8 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self initUI];
     [self initData];
+    [self initUI];
 }
 
 - (void)initUI {
@@ -40,6 +42,7 @@
     CGFloat cellHeight = availableHeightForCells / (float)kCellsPerCol;
     
     flowLayout.itemSize = CGSizeMake(cellWidth, cellHeight);
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +51,8 @@
 }
 
 - (void)initData {
+    _actNamelbl.text = self.postName;
+    
     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
     [paramDic setObject:_postId forKey:@"post_id"];
     [self requestAPIPost:paramDic];
@@ -94,19 +99,16 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ActivityListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"attendantCell" forIndexPath:indexPath];
-    
+        
     itemDic = [mainArray objectAtIndex:indexPath.item];
     NSString* imageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [itemDic objectForKey:@"user_photo_url"]];
     [commonUtils setImageViewAFNetworking:cell.activityPhotoImgView withImageUrl:imageUrl withPlaceholderImage:[UIImage imageNamed:@"empty_photo"]];
     
-    [commonUtils cropCircleImage:cell.activityPhotoImgView];
     [commonUtils setCircleBorderImage:cell.activityPhotoImgView withBorderWidth:2.0f withBorderColor:[UIColor whiteColor]];
     
-    cell.activityUnamelbl.text = @"";
-    cell.activityGenderlbl.text = @"";
-    cell.activityAgelbl.text = @"";
-    
-//    [cell.activityGenderlbl setText:[dic objectForKey:@"photo_id"]];
+    cell.activityUnamelbl.text = @"Marc Perkins";
+    cell.activityGenderlbl.text = @"Man";
+    cell.activityAgelbl.text = @"33";
     
     return cell;
 

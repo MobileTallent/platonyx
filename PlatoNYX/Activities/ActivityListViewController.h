@@ -12,5 +12,6 @@
 @interface ActivityListViewController : BaseViewController
 
 @property (nonatomic) NSString *postId;
+@property (nonatomic) NSString *postName;
 
 @end

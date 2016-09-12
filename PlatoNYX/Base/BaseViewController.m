@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "NotiListViewController.h"
+#import "ProfileSettingViewController.h"
 //#import "CustomCameraViewController.h"
 
 @interface BaseViewController ()
@@ -62,8 +63,18 @@
     mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"notiListVC"];
     navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
     self.sidePanelController.centerPanel = navController;
-}
 
+}
+- (IBAction)menuSettingsClicked:(id)sender {
+    if(self.isLoadingBase) return;
+    
+    ProfileSettingViewController *mainViewController;
+    UINavigationController *navController;
+    
+    mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingsVC"];
+    navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+    self.sidePanelController.centerPanel = navController;
+    }
 //- (IBAction)menuPostBarkClicked:(id)sender {
 //    if(self.isLoadingBase) return;
 //    

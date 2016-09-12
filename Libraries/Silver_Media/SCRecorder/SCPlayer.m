@@ -275,9 +275,9 @@ __weak SCPlayer * currentSCVideoPlayer = nil;
     
     AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:self.currentItem.asset];
     imageGenerator.appliesPreferredTrackTransform = YES;
-    CMTime time = CMTimeMake(1, 1);
-    CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
-    UIImage *thumbnail = [UIImage imageWithCGImage:imageRef scale:1.0 orientation:UIImageOrientationUp];
+//    CMTime time = CMTimeMake(1, 1);
+//    CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
+//    UIImage *thumbnail = [UIImage imageWithCGImage:imageRef scale:1.0 orientation:UIImageOrientationUp];
 
     _playerLayer.frame = CGRectMake(0, 0, size.width, size.height);
     _imageView.frame = CGRectMake(0, 0, size.width, size.height);

@@ -14,7 +14,8 @@
     // Initialization code
 
     //    [self.mainImageView setContentMode:UIViewContentModeScaleAspectFit];
-    
+    [super awakeFromNib];
+//    self.activityPhotoImgView.layer.cornerRadius = self.activityPhotoImgView.bounds.size.width / 2;
 }
 
 @end
