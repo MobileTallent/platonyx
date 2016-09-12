@@ -19,8 +19,7 @@
 #define API_URL_POST_ATTEND (SERVER_URL @"/api/get_attendants")
 #define API_URL_JOIN_POST (SERVER_URL @"/api/join_post")
 #define API_URL_MY_POST (SERVER_URL @"/api/get_myPost")
-
-#define API_URL_EXPLORE_STYLISTS (SERVER_URL @"/api/explore_stylists")
+#define API_URL_UDATE_SETTING (SERVER_URL @"/api/update_settings")
 
 // MEDIA CONFIG
 #define MEDIA_BARK_PHOTO_SELF_DOMAIN_PREFIX @"wf_media_bark_photo_"
