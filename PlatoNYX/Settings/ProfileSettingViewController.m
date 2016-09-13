@@ -48,6 +48,15 @@
     NSArray *educationArray;
     NSArray *incomeArray;
     NSArray *sexOrientationArray;
+    
+    NSString *dateString;
+    
+    NSDateFormatter *dateFormatter;
+    
+    NSMutableDictionary *actSettingsDic;
+    
+    IBOutlet UITextView *aboutTxtView;
+    
 }
 @end
 
@@ -67,6 +76,43 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initData {
+    genderArray = [[NSMutableArray alloc] init];
+    genderArray = [@[
+                     [@{@"tag" : @"1", @"text" : @"Kadın"} mutableCopy],
+                     [@{@"tag" : @"2", @"text" : @"Erkek"} mutableCopy]
+                     ] mutableCopy];
+    cityArray = [[NSMutableArray alloc] init];
+    cityArray = [@[
+                   [@{@"tag" : @"1", @"text" : @"İstanbul"} mutableCopy],
+                   [@{@"tag" : @"2", @"text" : @"Ankara"} mutableCopy],
+                   [@{@"tag" : @"3", @"text" : @"İzmir"} mutableCopy]
+                   ] mutableCopy];
+    educationArray = [[NSMutableArray alloc] init];
+    educationArray = [@[
+                    [@{@"tag" : @"1", @"text" : @"Lise Mezunu"} mutableCopy],
+                    [@{@"tag" : @"2", @"text" : @"Üniversite Mezunu"} mutableCopy],
+                    [@{@"tag" : @"3", @"text" : @"Yüksek Lisans"} mutableCopy],
+                    [@{@"tag" : @"4", @"text" : @"Doktora"} mutableCopy],
+                    [@{@"tag" : @"5", @"text" : @"Farketmez"} mutableCopy]
+                    ] mutableCopy];
+    incomeArray = [[NSMutableArray alloc] init];
+    incomeArray = [@[
+                     [@{@"tag" : @"1", @"text" : @"0-2.000 TL"} mutableCopy],
+                     [@{@"tag" : @"2", @"text" : @"2.000-6.000 TL"} mutableCopy],
+                     [@{@"tag" : @"3", @"text" : @"6.000-10.000 TL"} mutableCopy],
+                     [@{@"tag" : @"4", @"text" : @"10,000 TL"} mutableCopy],
+                     [@{@"tag" : @"5", @"text" : @"Farketmez"} mutableCopy]
+                     ] mutableCopy];
+    sexOrientationArray = [[NSMutableArray alloc] init];
+    sexOrientationArray = [@[
+                             [@{@"tag" : @"1", @"text" : @"Heterosexual"} mutableCopy],
+                             [@{@"tag" : @"2", @"text" : @"Gay"} mutableCopy]
+                             ] mutableCopy];
+    
+    actSettingsDic = [[NSMutableDictionary alloc] init];
+    actSettingsDic = [appController.currentUserSettings mutableCopy];
+}
 
 - (void)initUI {
     
@@ -97,6 +143,20 @@
     [commonUtils setTextFieldBorder:confirmPassTxt withColor:[appController appMainColor] withBorderWidth:1.0f withCornerRadius:oldPassTxt.bounds.size.height / 2];
     
     [commonUtils cropCircleButton:saveBtn];
+    
+    int settings_user_gender = [[actSettingsDic objectForKey:@"settings_user_gender"] intValue];
+    int settings_user_city = [[actSettingsDic objectForKey:@"settings_user_city"] intValue];
+    int settings_user_education = [[actSettingsDic objectForKey:@"settings_user_education"] intValue];
+    int settings_user_income = [[actSettingsDic objectForKey:@"settings_user_income"] intValue];
+    int settings_user_orientation = [[actSettingsDic objectForKey:@"settings_user_orientation"] intValue];
+    
+    genderlbl.text = [[genderArray objectAtIndex:settings_user_gender] objectForKey:@"text"];
+    citylbl.text = [[cityArray objectAtIndex:settings_user_city] objectForKey:@"text"];
+    educationlbl.text = [[educationArray objectAtIndex:settings_user_education] objectForKey:@"text"];
+    incomelbl.text = [[incomeArray objectAtIndex:settings_user_income] objectForKey:@"text"];
+    sexOrienlbl.text = [[sexOrientationArray objectAtIndex:settings_user_orientation] objectForKey:@"text"];
+    
+    aboutTxtView.text = [appController.currentUser objectForKey:@"user_about"];
 }
 
 - (IBAction)upTab1Btn:(id)sender {
@@ -125,46 +185,12 @@
     profileSettingView.hidden = YES;
 }
 
-- (void)initData {
-    genderArray = [[NSMutableArray alloc] init];
-    genderArray = [@[
-                      [@{@"tag" : @"1", @"text" : @"Kadın"} mutableCopy],
-                      [@{@"tag" : @"2", @"text" : @"Erkek"} mutableCopy]
-                      ] mutableCopy];
-    cityArray = [[NSMutableArray alloc] init];
-    cityArray = [@[
-                     [@{@"tag" : @"1", @"text" : @"İstanbul"} mutableCopy],
-                     [@{@"tag" : @"2", @"text" : @"Ankara"} mutableCopy],
-                     [@{@"tag" : @"3", @"text" : @"İzmir"} mutableCopy]
-                     ] mutableCopy];
-    educationArray = [[NSMutableArray alloc] init];
-    educationArray = [@[
-                     [@{@"tag" : @"1", @"text" : @"Lise Mezunu"} mutableCopy],
-                     [@{@"tag" : @"2", @"text" : @"Üniversite Mezunu"} mutableCopy],
-                     [@{@"tag" : @"3", @"text" : @"Yüksek Lisans"} mutableCopy],
-                     [@{@"tag" : @"4", @"text" : @"Doktora"} mutableCopy],
-                     [@{@"tag" : @"5", @"text" : @"Farketmez"} mutableCopy]
-                     ] mutableCopy];
-    incomeArray = [[NSMutableArray alloc] init];
-    incomeArray = [@[
-                     [@{@"tag" : @"1", @"text" : @"0-2.000 TL"} mutableCopy],
-                     [@{@"tag" : @"2", @"text" : @"2.000-6.000 TL"} mutableCopy],
-                     [@{@"tag" : @"3", @"text" : @"6.000-10.000 TL"} mutableCopy],
-                     [@{@"tag" : @"4", @"text" : @"10,000 TL"} mutableCopy],
-                     [@{@"tag" : @"5", @"text" : @"Farketmez"} mutableCopy]
-                     ] mutableCopy];
-    sexOrientationArray = [[NSMutableArray alloc] init];
-    sexOrientationArray = [@[
-                     [@{@"tag" : @"1", @"text" : @"Heterosexual"} mutableCopy],
-                     [@{@"tag" : @"2", @"text" : @"Gay"} mutableCopy]
-                     ] mutableCopy];
-}
-
 - (IBAction)onClickBirthBtn:(id)sender {
-    
+    _dateView.hidden = NO;
 }
 
 - (IBAction)onClickGenderBtn:(id)sender {
+    
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil  destructiveButtonTitle:nil  otherButtonTitles:nil, nil];
     int i = 0;
     for (NSDictionary *gender in genderArray){
@@ -222,21 +248,100 @@
 #pragma mark - ActiohSheet
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSLog(@"Button Index %d",(int)buttonIndex);
+    NSString *indexStr = [NSString stringWithFormat:@"%d",(int)buttonIndex];
+    
     if (actionSheet.tag == 1){
         genderlbl.text = [[genderArray objectAtIndex:buttonIndex] objectForKey:@"text"];
+        [actSettingsDic setValue:indexStr forKey:@"settings_user_gender"];
     }else if (actionSheet.tag == 2){
         citylbl.text = [[cityArray objectAtIndex:buttonIndex] objectForKey:@"text"];
+        [actSettingsDic setValue:indexStr forKey:@"settings_user_city"];
     }else if (actionSheet.tag == 3){
         educationlbl.text = [[educationArray objectAtIndex:buttonIndex] objectForKey:@"text"];
+        [actSettingsDic setValue:indexStr forKey:@"settings_user_education"];
     }else if (actionSheet.tag == 4){
         incomelbl.text = [[incomeArray objectAtIndex:buttonIndex] objectForKey:@"text"];
+        [actSettingsDic setValue:indexStr forKey:@"settings_user_income"];
     }else if (actionSheet.tag == 5){
         sexOrienlbl.text = [[sexOrientationArray objectAtIndex:buttonIndex] objectForKey:@"text"];
+        [actSettingsDic setValue:indexStr forKey:@"settings_user_orientation"];
     }
 }
 
 - (IBAction)onSave:(id)sender {
+    if(![aboutTxtView.text isEqualToString:@""]){
+        [actSettingsDic setValue:aboutTxtView.text forKey:@"user_about"];
+    }
     
+    if([oldPassTxt.text isEqualToString:confirmPassTxt.text]){
+        [actSettingsDic setValue:[commonUtils md5:oldPassTxt.text] forKey:@"old_password"];
+        [actSettingsDic setValue:[commonUtils md5:newPassTxt.text] forKey:@"new_password"];
+    }else{
+        
+    }
+    
+    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
+    [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
+    [paramDic setObject:actSettingsDic forKey:@"user_settings"];
+    [self requestAPIPost:paramDic];
+}
+
+
+#pragma mark - API Request - get Latest Settings Dictionary
+- (void)requestAPIPost:(NSMutableDictionary *)dic {
+    [commonUtils showActivityIndicatorColored:self.view];
+    [NSThread detachNewThreadSelector:@selector(requestDataPost:) toTarget:self withObject:dic];
+}
+
+- (void)requestDataPost:(id) params {
+    NSDictionary *resObj = nil;
+    resObj = [commonUtils httpJsonRequest:API_URL_UDATE_SETTING withJSON:(NSMutableDictionary *) params];
+    
+    [commonUtils hideActivityIndicator];
+    if (resObj != nil) {
+        NSDictionary *result = (NSDictionary *)resObj;
+        NSDecimalNumber *status = [result objectForKey:@"status"];
+        if([status intValue] == 1) {
+            actSettingsDic = [result objectForKey:@"user_settings"];
+            
+            appController.currentUser = [[result objectForKey:@"current_user"] mutableCopy];
+            [commonUtils setUserDefaultDic:@"current_user" withDic:appController.currentUser];
+            
+            appController.currentUserSettings = [actSettingsDic mutableCopy];
+            [commonUtils setUserDefaultDic:@"currentUserSettings" withDic:appController.currentUserSettings];            
+            
+            NSLog(@"%@", [result objectForKey:@"msg"]);
+            
+            [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
+        } else {
+            NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
+            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
+            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+        }
+    } else {
+        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+    }
+}
+
+- (void)requestOverPost {
+    
+}
+
+- (IBAction)changeDate:(id)sender {
+    dateFormatter = [[NSDateFormatter alloc] init];
+    //[dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    dateString = [dateFormatter stringFromDate:_datePicker.date];
+}
+
+- (IBAction)onDateCancel:(id)sender {
+    _dateView.hidden = YES;
+}
+
+- (IBAction)onDateDone:(id)sender {
+    birthDatelbl.text = dateString;
+    [actSettingsDic setValue:dateString forKey:@"settings_user_birth"];
+    _dateView.hidden = YES;
 }
 
 @end

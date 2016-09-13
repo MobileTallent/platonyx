@@ -65,6 +65,7 @@ static AppController *_appController;
         
         // Data
         _currentUser = [[NSMutableDictionary alloc] init];
+        _currentUserSettings = [[NSMutableDictionary alloc] init];
         _rePostArray = [[NSMutableArray alloc] init];
         
         _upPostArray = [[NSMutableArray alloc] init];

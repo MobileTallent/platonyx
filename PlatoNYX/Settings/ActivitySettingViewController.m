@@ -57,6 +57,8 @@
     // Do any additional setup after loading the view.
     [self initData];
     [self initUI];
+    
+    [commonUtils cropCircleButton:saveBtn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,15 +67,95 @@
 }
 
 - (void)initUI {
-    [commonUtils cropCircleButton:saveBtn];
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onWeekend"] intValue]) {
+        [weekendMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [weekendMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onAfterWorking"] intValue]) {
+        [afterworkingMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [afterworkingMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onDuringDay"] intValue]) {
+        [duringdayMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [duringdayMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onNoMatter"] intValue]) {
+        [nomatterMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [nomatterMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onGourmand"] intValue]) {
+        [gourmandMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [gourmandMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onAdrenalin"] intValue]) {
+        [adrenalinMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [adrenalinMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onNature"] intValue]) {
+        [natureMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [natureMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onCreative"] intValue]) {
+        [creativeMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [creativeMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onVoyager"] intValue]) {
+        [voyagerMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [voyagerMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onSmall"] intValue]) {
+        [smallMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [smallMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onMedium"] intValue]) {
+        [mediumMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [mediumMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onHigh"] intValue]) {
+        [highMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [highMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
+    
+    if([[actSettingsDic objectForKey:@"settings_act_onMuch"] intValue]) {
+        [muchMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
+    }else {
+        [muchMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
+    }
 }
 
 - (void)initData {
     actSettingsDic = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
-    [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
-    [paramDic setObject:actSettingsDic forKey:@"user_settings"];
-    [self requestAPIPost:paramDic];
+    actSettingsDic = appController.currentUserSettings;
+//    actSettingsDic = [[commonUtils getUserDefault:@"currentUserSettings"] mutableCopy];
+
+//    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
+//    [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
+//    [paramDic setObject:actSettingsDic forKey:@"user_settings"];
+//    [self requestAPIPost:paramDic];
 }
 
 #pragma mark - API Request - get Latest Settings Dictionary
@@ -91,7 +173,13 @@
         NSDictionary *result = (NSDictionary *)resObj;
         NSDecimalNumber *status = [result objectForKey:@"status"];
         if([status intValue] == 1) {
-            actSettingsDic = [result objectForKey:@"result"];
+            actSettingsDic = [result objectForKey:@"user_settings"];
+            
+            appController.currentUser = [[result objectForKey:@"current_user"] mutableCopy];
+            [commonUtils setUserDefaultDic:@"current_user" withDic:appController.currentUser];
+            
+            appController.currentUserSettings = [actSettingsDic mutableCopy];
+            [commonUtils setUserDefaultDic:@"currentUserSettings" withDic:appController.currentUserSettings];
             
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
@@ -105,84 +193,7 @@
 }
 
 - (void)requestOverPost {
-        
-    if([[actSettingsDic objectForKey:@"settings_act_onWeekend"] intValue]) {
-        [weekendMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [weekendMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onAfterWorking"] intValue]) {
-        [afterworkingMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [afterworkingMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onDuringDay"] intValue]) {
-        [duringdayMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [duringdayMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onNoMatter"] intValue]) {
-        [nomatterMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [nomatterMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onGourmand"] intValue]) {
-        [gourmandMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [gourmandMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onAdrenalin"] intValue]) {
-        [adrenalinMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [adrenalinMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onNature"] intValue]) {
-        [natureMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [natureMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onCreative"] intValue]) {
-        [creativeMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [creativeMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onVoyager"] intValue]) {
-        [voyagerMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [voyagerMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onSmall"] intValue]) {
-        [smallMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [smallMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onMedium"] intValue]) {
-        [mediumMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [mediumMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onHigh"] intValue]) {
-        [highMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [highMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
-
-    if([[actSettingsDic objectForKey:@"settings_act_onMuch"] intValue]) {
-        [muchMarkImg setImage:[UIImage imageNamed:@"check_icon"]];
-    }else {
-        [muchMarkImg setImage:[UIImage imageNamed:@"uncheck_icon"]];
-    }
+    
 }
 
 - (BOOL) checkWhenOptions {
@@ -389,6 +400,31 @@
 
 
 - (IBAction)onSave:(id)sender {
+//    [appController.vAlert doYesNo:@"Confirm"
+//                             body:@"Are you sure you want to delete this photo?"
+//                              yes:^(DoAlertView *alertView) {
+//                                  NSMutableDictionary *dic = [mainArray objectAtIndex:rowIndex];
+//                                  NSMutableDictionary *paramdic = [[NSMutableDictionary alloc] init];
+//                                  [paramdic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
+//                                  [paramdic setObject:[dic objectForKey:@"photo_id"] forKey:@"photo_id"];
+//                                  
+//                                  NSLog(@"%@", paramdic);
+//                                  
+//                                  [commonUtils showActivityIndicatorColored:self.view];
+//                                  [NSThread detachNewThreadSelector:@selector(requestDataPhotoDelete:) toTarget:self withObject:paramdic];
+//                              }
+//                               no:^(DoAlertView *alertView) {
+//                                   
+//                               }
+//     ];
+    
+    
+    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
+    [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
+    [paramDic setObject:actSettingsDic forKey:@"user_settings"];
+    [self requestAPIPost:paramDic];
 }
+
+
 
 @end

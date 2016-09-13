@@ -76,8 +76,12 @@
         if([status intValue] == 1) {
             appController.currentUser = [result objectForKey:@"current_user"];
             NSLog(@"%@", appController.currentUser);
-//            appController.rePostArray = [result objectForKey:@"posts"];
+
+            appController.currentUserSettings = [result objectForKey:@"user_settings"];
+            
             [commonUtils setUserDefaultDic:@"current_user" withDic:appController.currentUser];
+            
+            [commonUtils setUserDefaultDic:@"currentUserSettings" withDic:appController.currentUserSettings];
             
             [self performSelector:@selector(requestOverLogin) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {

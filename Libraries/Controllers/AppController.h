@@ -7,7 +7,7 @@
 @interface AppController : NSObject
 
 @property (nonatomic, strong) NSMutableArray *introSliderImages, *rePostArray, *upPostArray, *pastPostArray;
-@property (nonatomic, strong) NSMutableDictionary *currentUser, *apnsMessage;
+@property (nonatomic, strong) NSMutableDictionary *currentUser, *currentUserSettings, *apnsMessage;
 @property (nonatomic, strong) NSMutableArray *barks, *myBarks, *likedBarks, *menuPages, *avatars, *favoriteUsers, *statsPeriods;
 @property (nonatomic, strong) UIImage *postBarkImage, *editProfileImage;
 

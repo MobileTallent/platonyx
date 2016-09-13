@@ -28,6 +28,11 @@
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
+    if(![commonUtils checkKeyInDic:@"settings_act_onWeekend" inDic:appController.currentUserSettings] || ![commonUtils checkKeyInDic:@"settings_act_onGourmand" inDic:appController.currentUserSettings] || ![commonUtils checkKeyInDic:@"settings_act_onSmall" inDic:appController.currentUserSettings]) {
+
+        appController.currentUserSettings = [commonUtils getUserDefaultDicByKey:@"currentUserSettings"];
+        
+    }
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     

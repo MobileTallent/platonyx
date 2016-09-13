@@ -10,4 +10,8 @@
 
 @interface ProfileSettingViewController : BaseViewController
 
+
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet UIView *dateView;
+
 @end
