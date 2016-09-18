@@ -1,14 +1,14 @@
 //
-//  joinedUserTableViewCell.m
+//  JoinedUsersTableViewCell.m
 //  PlatoNYX
 //
-//  Created by mobilestar on 8/31/16.
+//  Created by mobilestar on 9/17/16.
 //  Copyright © 2016 marc. All rights reserved.
 //
 
-#import "joinedUserTableViewCell.h"
+#import "JoinedUsersTableViewCell.h"
 
-@implementation joinedUserTableViewCell
+@implementation JoinedUsersTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

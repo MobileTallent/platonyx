@@ -8,11 +8,12 @@
 
 #import "RankingViewController.h"
 #import "rankingTableViewCell.h"
+#import "JoinedUsersTableViewCell.h"
 
-@interface RankingViewController (){
-    NSMutableArray *pastPostArray;
+@interface RankingViewController ()<UITableViewDelegate, UITableViewDataSource>{
+    NSMutableArray *pastPostArray, *joinedArray;
     IBOutlet UITableView *rankingTableView;
-//    IBOutlet UITableView *joinedUserTableView;
+    IBOutlet UITableView *joinedUserTableView;
 }
 
 @end
@@ -22,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self initData];
 }
 
@@ -33,6 +33,8 @@
 
 - (void) initData {
     pastPostArray = [appController.pastPostArray mutableCopy];
+//    joinedArray = [[NSMutableArray alloc] init];
+    joinedArray = [[pastPostArray objectAtIndex:0] objectForKey:@"attend"];
     [rankingTableView reloadData];
 }
 
@@ -40,41 +42,54 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [pastPostArray count];
+    if(tableView == rankingTableView)
+        return [pastPostArray count];
+    else
+        return [joinedArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [UIScreen mainScreen].bounds.size.height - 190;
+    if (tableView == rankingTableView) {
+        return 182;
+    }else
+        return 70;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    rankingTableViewCell *rcell = (rankingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"rankingTableViewCell"];
-    rcell.activityNamelbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"];
-    rcell.placelbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_place"];
+    if (tableView == rankingTableView) {
+        rankingTableViewCell *rcell = (rankingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"rankingTableViewCell"];
+        rcell.activityNamelbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"];
+        rcell.placelbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_place"];
+        rcell.viewAttendantsBtn.tag = indexPath.row;
+        [rcell.viewAttendantsBtn addTarget:self
+                    action:@selector(OnViewAttendants:)
+          forControlEvents:UIControlEventTouchUpInside];
 
-/*    else if(tableView == joinedUserTableView) {
-        joinedUserTableViewCell *jcell = (joinedUserTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"joinedUserCell"];
-        cell = jcell;
+        //joinedUserArray
+        
+    //    rcell.joinedUserArray = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"attend"];
+        
+        return rcell;
+    }else{
+        JoinedUsersTableViewCell *jcell = (JoinedUsersTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"joinedUserCell"];
+        jcell.userNamelbl.text = [[joinedArray objectAtIndex:indexPath.row] objectForKey:@"user_name"];
+
+        return jcell;
     }
-*/  
-    //joinedUserArray
-    
-    rcell.joinedUserArray = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"attend"];
-    
-    [rcell.joinedUserTableView reloadData];
-    return rcell;
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)OnViewAttendants:(UIButton *)sender {
+    // now you can known which button
+    NSLog(@"%ld", (long)sender.tag);
+    
+    joinedArray = [[pastPostArray objectAtIndex:sender.tag] objectForKey:@"attend"];
+    [joinedUserTableView reloadData];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        CGRect rect = CGRectMake(0, 0, self.attendantsView.frame.size.width, self.attendantsView.frame.size.height);
+        self.attendantsView.frame = rect;
+    }];
 }
-*/
 
 @end

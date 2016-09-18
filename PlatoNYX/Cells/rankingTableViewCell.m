@@ -7,7 +7,6 @@
 //
 
 #import "rankingTableViewCell.h"
-#import "joinedUserTableViewCell.h"
 
 
 @implementation rankingTableViewCell
@@ -20,6 +19,7 @@
     [commonUtils setCircleBorderButton:_nameDislikeBtn withBorderWidth:1.0f withBorderColor:[appController appMainColor]];
     [commonUtils setCircleBorderButton:_placeLikeBtn withBorderWidth:1.0f withBorderColor:[appController appMainColor]];
     [commonUtils setCircleBorderButton:_placeDislikeBtn withBorderWidth:1.0f withBorderColor:[appController appMainColor]];
+    [commonUtils cropCircleButton:_viewAttendantsBtn];
     
     mainArray = [[NSMutableArray alloc] init];
     mainArray = [self.joinedUserArray mutableCopy];
@@ -34,22 +34,5 @@
 
     // Configure the view for the selected state
 }
-
-#pragma UITableView Delegate
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [mainArray count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    joinedUserTableViewCell *jcell = (joinedUserTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"joinedUserCell"];
-    
-    return jcell;
-}
-
-- (void) onSend {
-    [self.cellDelegate didSelectChildAtIndex:0];
-}
-
 
 @end

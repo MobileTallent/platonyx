@@ -10,4 +10,6 @@
 
 @interface RankingViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *attendantsView;
+
 @end

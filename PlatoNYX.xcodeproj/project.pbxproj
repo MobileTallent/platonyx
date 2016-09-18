@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B03ACFC1D6BB796000D250B /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B03ACFB1D6BB796000D250B /* ContactViewController.m */; };
 		4B03ACFF1D6BD64C000D250B /* UpActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B03ACFE1D6BD64C000D250B /* UpActivityTableViewCell.m */; };
-		4B0855B71D77248A001817AC /* joinedUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0855B61D77248A001817AC /* joinedUserTableViewCell.m */; };
 		4B0DB60D1D70431000BD78C6 /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0DB60C1D70431000BD78C6 /* RankingViewController.m */; };
 		4B11F3A41D52B41600BDE3D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F3A31D52B41600BDE3D9 /* main.m */; };
 		4B11F3A71D52B41600BDE3D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F3A61D52B41600BDE3D9 /* AppDelegate.m */; };
@@ -159,6 +158,7 @@
 		4B860AD61D557E1F002BD5C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B860AD51D557E1F002BD5C8 /* QuartzCore.framework */; };
 		4B860AD81D557E29002BD5C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B860AD71D557E29002BD5C8 /* Foundation.framework */; };
 		4B860ADA1D557E36002BD5C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B860AD91D557E36002BD5C8 /* CoreGraphics.framework */; };
+		4BADFF041D8DAF5C0001CD19 /* JoinedUsersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BADFF031D8DAF5C0001CD19 /* JoinedUsersTableViewCell.m */; };
 		4BB196791D651FE00025C79A /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB196781D651FE00025C79A /* ActivityDetailViewController.m */; };
 		4BB21AC01D5DFCDC00E528EC /* ActivityListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21ABF1D5DFCDC00E528EC /* ActivityListCollectionViewCell.m */; };
 		4BB21AC41D5E098B00E528EC /* photo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB21AC11D5E098B00E528EC /* photo2.png */; };
@@ -304,8 +304,6 @@
 		4B03ACFB1D6BB796000D250B /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		4B03ACFD1D6BD64C000D250B /* UpActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpActivityTableViewCell.h; sourceTree = "<group>"; };
 		4B03ACFE1D6BD64C000D250B /* UpActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpActivityTableViewCell.m; sourceTree = "<group>"; };
-		4B0855B51D77248A001817AC /* joinedUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = joinedUserTableViewCell.h; sourceTree = "<group>"; };
-		4B0855B61D77248A001817AC /* joinedUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = joinedUserTableViewCell.m; sourceTree = "<group>"; };
 		4B0DB60B1D70431000BD78C6 /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingViewController.h; sourceTree = "<group>"; };
 		4B0DB60C1D70431000BD78C6 /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingViewController.m; sourceTree = "<group>"; };
 		4B11F39F1D52B41500BDE3D9 /* PlatoNYX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlatoNYX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -552,6 +550,8 @@
 		4B860AD51D557E1F002BD5C8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4B860AD71D557E29002BD5C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4B860AD91D557E36002BD5C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4BADFF021D8DAF5C0001CD19 /* JoinedUsersTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinedUsersTableViewCell.h; sourceTree = "<group>"; };
+		4BADFF031D8DAF5C0001CD19 /* JoinedUsersTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinedUsersTableViewCell.m; sourceTree = "<group>"; };
 		4BB196771D651FE00025C79A /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailViewController.h; sourceTree = "<group>"; };
 		4BB196781D651FE00025C79A /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailViewController.m; sourceTree = "<group>"; };
 		4BB21ABE1D5DFCDC00E528EC /* ActivityListCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListCollectionViewCell.h; sourceTree = "<group>"; };
@@ -835,8 +835,8 @@
 				4B03ACFE1D6BD64C000D250B /* UpActivityTableViewCell.m */,
 				4B6558401D6CBE46003F43D2 /* rankingTableViewCell.h */,
 				4B6558411D6CBE46003F43D2 /* rankingTableViewCell.m */,
-				4B0855B51D77248A001817AC /* joinedUserTableViewCell.h */,
-				4B0855B61D77248A001817AC /* joinedUserTableViewCell.m */,
+				4BADFF021D8DAF5C0001CD19 /* JoinedUsersTableViewCell.h */,
+				4BADFF031D8DAF5C0001CD19 /* JoinedUsersTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1915,6 +1915,7 @@
 				4B75DF6B1D80D009002D544D /* ProfileSettingViewController.m in Sources */,
 				4B860A171D557D3A002BD5C8 /* SBJsonWriter.m in Sources */,
 				4B860A131D557D3A002BD5C8 /* NSString+SBJSON.m in Sources */,
+				4BADFF041D8DAF5C0001CD19 /* JoinedUsersTableViewCell.m in Sources */,
 				4B860A0C1D557D3A002BD5C8 /* UIImage+Resize.m in Sources */,
 				4B8609F51D557D3A002BD5C8 /* AFHTTPSessionManager.m in Sources */,
 				4B860A151D557D3A002BD5C8 /* SBJsonBase.m in Sources */,
@@ -1971,7 +1972,6 @@
 				4B860ABD1D557D3A002BD5C8 /* SCRecorder.m in Sources */,
 				4B190B041D58E3E200DC3AD8 /* LeftPanelViewController.m in Sources */,
 				4B3A1E5D1D812FAB00B6FF34 /* ActivitySettingViewController.m in Sources */,
-				4B0855B71D77248A001817AC /* joinedUserTableViewCell.m in Sources */,
 				4B860AC21D557D3A002BD5C8 /* SPGooglePlacesAutocompletePlace.m in Sources */,
 				4B03ACFF1D6BD64C000D250B /* UpActivityTableViewCell.m in Sources */,
 				4B8609FE1D557D3A002BD5C8 /* CWStarRateView.m in Sources */,
