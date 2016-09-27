@@ -13,6 +13,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    [commonUtils setCircleBorderButton:_userLikeBtn withBorderWidth:1.0f withBorderColor:[appController appMainColor]];
+    [commonUtils setCircleBorderButton:_userDislikeBtn withBorderWidth:1.0f withBorderColor:[appController appMainColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

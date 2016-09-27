@@ -257,6 +257,7 @@
             NSInteger index = [mainArray indexOfObject:imageDic];
             NSString* imageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [imageDic objectForKey:@"photo_url"]];
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(index * self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height)];
+            [imageView setContentMode:(UIViewContentMode)UIViewContentModeScaleAspectFit];
             [commonUtils setImageViewAFNetworking:imageView withImageUrl:imageUrl withPlaceholderImage:[UIImage imageNamed:@"empty_photo"]];
             [scrollView addSubview:imageView];
         }

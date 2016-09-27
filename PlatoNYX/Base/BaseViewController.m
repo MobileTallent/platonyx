@@ -39,6 +39,17 @@
     self.isLoadingBase = NO;
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:@"ReceiveNotification" object:nil];
+    
+    UILabel *yourLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 15, 15)];
+    
+    [yourLabel setTextColor:[UIColor whiteColor]];
+    [yourLabel setText:@"2"];
+    [yourLabel setBackgroundColor:appController.appMainColor];
+    [yourLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 10.0f]];
+    [yourLabel setTextAlignment:UITextAlignmentCenter];
+    yourLabel.layer.cornerRadius = yourLabel.bounds.size.height / 2;
+    yourLabel.clipsToBounds = YES;
+    [self.notiBtn addSubview:yourLabel];
 }
 
 - (void)didReceiveMemoryWarning {

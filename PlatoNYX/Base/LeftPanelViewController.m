@@ -125,7 +125,9 @@
             self.sidePanelController.centerPanel = navController;
             break;
         case 4:
-            
+            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"invitePage"];
+            navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+            self.sidePanelController.centerPanel = navController;
             break;
         case 5:
             [self logout];

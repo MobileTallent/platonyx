@@ -23,6 +23,8 @@
     
     mainArray = [[NSMutableArray alloc] init];
     mainArray = [self.joinedUserArray mutableCopy];
+    
+    
 }
 
 //-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

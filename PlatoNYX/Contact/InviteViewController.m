@@ -1,25 +1,27 @@
 //
-//  ContactViewController.m
+//  InviteViewController.m
 //  PlatoNYX
 //
-//  Created by mobilestar on 8/23/16.
+//  Created by mobilestar on 9/27/16.
 //  Copyright © 2016 marc. All rights reserved.
 //
 
-#import "ContactViewController.h"
+#import "InviteViewController.h"
 
-@interface ContactViewController () {
+@interface InviteViewController () {
     
     IBOutlet UIButton *submitBtn;
+    
 }
 
 @end
 
-@implementation ContactViewController
+@implementation InviteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     [commonUtils cropCircleButton:submitBtn];
 }
 

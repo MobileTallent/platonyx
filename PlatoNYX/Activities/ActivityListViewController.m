@@ -99,14 +99,13 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ActivityListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"attendantCell" forIndexPath:indexPath];
-        
     itemDic = [mainArray objectAtIndex:indexPath.item];
     NSString* imageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [itemDic objectForKey:@"user_photo_url"]];
     [commonUtils setImageViewAFNetworking:cell.activityPhotoImgView withImageUrl:imageUrl withPlaceholderImage:[UIImage imageNamed:@"empty_photo"]];
     
     [commonUtils setCircleBorderImage:cell.activityPhotoImgView withBorderWidth:2.0f withBorderColor:[UIColor whiteColor]];
     
-    cell.activityUnamelbl.text = @"Marc Perkins";
+    cell.activityUnamelbl.text = [itemDic objectForKey:@"user_name"];
     cell.activityGenderlbl.text = @"Man";
     cell.activityAgelbl.text = @"33";
     
@@ -115,9 +114,13 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    itemDic = [mainArray objectAtIndex:indexPath.item];
+    
     ProfileViewController* myController = [self.storyboard instantiateViewControllerWithIdentifier:@"otherProfile"];
     myController.itemDic = [itemDic mutableCopy];
     [self.navigationController pushViewController:myController animated:YES];
 }
+
+
 
 @end

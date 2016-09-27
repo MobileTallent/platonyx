@@ -12,8 +12,11 @@
 
 @interface RankingViewController ()<UITableViewDelegate, UITableViewDataSource>{
     NSMutableArray *pastPostArray, *joinedArray;
+    
     IBOutlet UITableView *rankingTableView;
     IBOutlet UITableView *joinedUserTableView;
+    
+    IBOutlet UIButton *BackFromAttendantsBtn;
 }
 
 @end
@@ -24,6 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initData];
+    
+    BackFromAttendantsBtn.layer.cornerRadius = BackFromAttendantsBtn.layer.frame.size.height / 2;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,9 +38,9 @@
 
 - (void) initData {
     pastPostArray = [appController.pastPostArray mutableCopy];
-//    joinedArray = [[NSMutableArray alloc] init];
-    joinedArray = [[pastPostArray objectAtIndex:0] objectForKey:@"attend"];
-    [rankingTableView reloadData];
+    joinedArray = [[NSMutableArray alloc] init];
+//    joinedArray = [[pastPostArray objectAtIndex:0] objectForKey:@"attend"];
+//    [rankingTableView reloadData];
 }
 
 #pragma UITableViewDelegate
@@ -58,38 +63,148 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == rankingTableView) {
         rankingTableViewCell *rcell = (rankingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"rankingTableViewCell"];
+    
         rcell.activityNamelbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"];
         rcell.placelbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_place"];
-        rcell.viewAttendantsBtn.tag = indexPath.row;
+        rcell.viewAttendantsBtn.tag = indexPath.row * 7;
         [rcell.viewAttendantsBtn addTarget:self
-                    action:@selector(OnViewAttendants:)
+                    action:@selector(onCellBtn:)
           forControlEvents:UIControlEventTouchUpInside];
 
-        //joinedUserArray
-        
-    //    rcell.joinedUserArray = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"attend"];
+        rcell.nameLikeBtn.tag = indexPath.row * 7 + 1;
+        [rcell.nameLikeBtn addTarget:self
+                                    action:@selector(onCellBtn:)
+                          forControlEvents:UIControlEventTouchUpInside];
+        rcell.nameDislikeBtn.tag = indexPath.row * 7 + 2;
+        [rcell.nameDislikeBtn addTarget:self
+                              action:@selector(onCellBtn:)
+                    forControlEvents:UIControlEventTouchUpInside];
+        rcell.placeLikeBtn.tag = indexPath.row * 7 + 3;
+        [rcell.placeLikeBtn addTarget:self
+                                 action:@selector(onCellBtn:)
+                       forControlEvents:UIControlEventTouchUpInside];
+        rcell.placeDislikeBtn.tag = indexPath.row * 7 + 4;
+        [rcell.placeDislikeBtn addTarget:self
+                                 action:@selector(onCellBtn:)
+                       forControlEvents:UIControlEventTouchUpInside];
         
         return rcell;
     }else{
         JoinedUsersTableViewCell *jcell = (JoinedUsersTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"joinedUserCell"];
         jcell.userNamelbl.text = [[joinedArray objectAtIndex:indexPath.row] objectForKey:@"user_name"];
-
+        
+        NSString* profileImageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [[joinedArray objectAtIndex:indexPath.row] objectForKey:@"user_photo_url"]];
+        [commonUtils setImageViewAFNetworking:jcell.userProfileImgView withImageUrl:profileImageUrl withPlaceholderImage:[UIImage imageNamed:@"empty_photo"]];
+        
+        [commonUtils setCircleBorderImage:jcell.userProfileImgView withBorderWidth:1.0f withBorderColor:[UIColor whiteColor]];
+        
+        jcell.userLikeBtn.tag = indexPath.row * 7 + 5;
+        [jcell.userLikeBtn addTarget:self
+                               action:@selector(onCellBtn:)
+                     forControlEvents:UIControlEventTouchUpInside];
+        jcell.userDislikeBtn.tag = indexPath.row * 7 + 6;
+        [jcell.userDislikeBtn addTarget:self
+                                  action:@selector(onCellBtn:)
+                        forControlEvents:UIControlEventTouchUpInside];
+        
         return jcell;
     }
 }
 
-- (void)OnViewAttendants:(UIButton *)sender {
-    // now you can known which button
-    NSLog(@"%ld", (long)sender.tag);
+- (void)onCellBtn:(UIButton *)sender {
+    int rowIndex = (int)sender.tag / 7;
+    NSLog(@"%d", rowIndex);
     
-    joinedArray = [[pastPostArray objectAtIndex:sender.tag] objectForKey:@"attend"];
-    [joinedUserTableView reloadData];
+//    NSLog(@"%@", [pastPostArray objectAtIndex:rowIndex]);
     
+    switch (sender.tag % 7) {
+        case 0: {
+            joinedArray = [[pastPostArray objectAtIndex:rowIndex] objectForKey:@"attend"];
+            [joinedUserTableView reloadData];
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                
+                CGRect rect = CGRectMake(0, 0, self.attendantsView.frame.size.width, self.attendantsView.frame.size.height);
+                self.attendantsView.frame = rect;
+            }];
+            break;
+        }
+        case 1: {
+            [sender setBackgroundColor:[appController appMainColor]];
+            [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [sender setImage:[UIImage imageNamed:@"thumbUp_white"] forState:UIControlStateNormal];
+            
+            UIButton *button = (UIButton *)[self.view viewWithTag:sender.tag + 1];
+            [button setBackgroundColor:[UIColor clearColor]];
+            [button setTitleColor:[appController appMainColor] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"thumbDown_pink"] forState:UIControlStateNormal];
+            break;
+        }
+        case 2: {
+            [sender setBackgroundColor:[appController appMainColor]];
+            [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [sender setImage:[UIImage imageNamed:@"thumbDown_white"] forState:UIControlStateNormal];
+            
+            UIButton *button = (UIButton *)[self.view viewWithTag:sender.tag - 1];
+            [button setBackgroundColor:[UIColor clearColor]];
+            [button setTitleColor:[appController appMainColor] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"thumbUp_pink"] forState:UIControlStateNormal];
+            break;
+        }
+        case 3: {
+            [sender setBackgroundColor:[appController appMainColor]];
+            [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [sender setImage:[UIImage imageNamed:@"thumbUp_white"] forState:UIControlStateNormal];
+            
+            UIButton *button = (UIButton *)[self.view viewWithTag:sender.tag + 1];
+            [button setBackgroundColor:[UIColor clearColor]];
+            [button setTitleColor:[appController appMainColor] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"thumbDown_pink"] forState:UIControlStateNormal];
+            break;
+        }
+        case 4: {
+            [sender setBackgroundColor:[appController appMainColor]];
+            [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [sender setImage:[UIImage imageNamed:@"thumbDown_white"] forState:UIControlStateNormal];
+            
+            UIButton *button = (UIButton *)[self.view viewWithTag:sender.tag - 1];
+            [button setBackgroundColor:[UIColor clearColor]];
+            [button setTitleColor:[appController appMainColor] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"thumbUp_pink"] forState:UIControlStateNormal];
+            break;
+        }
+        case 5: {
+            [sender setBackgroundColor:[appController appMainColor]];
+            [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [sender setImage:[UIImage imageNamed:@"thumbUp_white"] forState:UIControlStateNormal];
+            
+            UIButton *button = (UIButton *)[self.view viewWithTag:sender.tag + 1];
+            [button setBackgroundColor:[UIColor clearColor]];
+            [button setTitleColor:[appController appMainColor] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"thumbDown_pink"] forState:UIControlStateNormal];
+            break;
+        }
+        case 6: {
+            [sender setBackgroundColor:[appController appMainColor]];
+            [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [sender setImage:[UIImage imageNamed:@"thumbDown_white"] forState:UIControlStateNormal];
+            
+            UIButton *button = (UIButton *)[self.view viewWithTag:sender.tag - 1];
+            [button setBackgroundColor:[UIColor clearColor]];
+            [button setTitleColor:[appController appMainColor] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"thumbUp_pink"] forState:UIControlStateNormal];
+            break;
+        }
+    }
+}
+
+- (IBAction)onBackFromAttendantsView:(id)sender {
     [UIView animateWithDuration:0.3 animations:^{
         
-        CGRect rect = CGRectMake(0, 0, self.attendantsView.frame.size.width, self.attendantsView.frame.size.height);
+        CGRect rect = CGRectMake(0, self.attendantsView.frame.size.height, self.attendantsView.frame.size.width, self.attendantsView.frame.size.height);
         self.attendantsView.frame = rect;
     }];
 }
+
 
 @end

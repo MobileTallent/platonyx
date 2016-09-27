@@ -13,4 +13,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *userProfileImgView;
 @property (strong, nonatomic) IBOutlet UILabel *userNamelbl;
 
+@property (strong, nonatomic) IBOutlet UIButton *userLikeBtn;
+@property (strong, nonatomic) IBOutlet UIButton *userDislikeBtn;
+
+
 @end

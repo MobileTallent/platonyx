@@ -138,6 +138,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ActivityTableViewCell *cell = (ActivityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"activityTableCell"];
+
+    NSString* profileImageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_thumb_url"]];
+    [commonUtils setImageViewAFNetworking:cell.activityPhotoImg withImageUrl:profileImageUrl withPlaceholderImage:[UIImage imageNamed:@"empty_photo"]];
     
     cell.activityNamelbl.text = [[NSString alloc] initWithFormat:@"%@ Goes Here", [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"]];
     cell.activityPlacelbl.text = [[NSString alloc] initWithFormat:@"%@", [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_place"]];

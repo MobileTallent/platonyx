@@ -10,6 +10,7 @@
 #import "UpActivityTableViewCell.h"
 #import "rankingTableViewCell.h"
 #import "RankingViewController.h"
+#import "ActivityListViewController.h"
 
 @interface MyActivityViewController ()<UITableViewDataSource, UITableViewDelegate>{
     
@@ -23,6 +24,7 @@
     CLLocationCoordinate2D location;
     MKCoordinateRegion region;
     MKCoordinateSpan span;
+    int rowIndex;
 }
 @end
 
@@ -33,6 +35,7 @@
     // Do any additional setup after loading the view.
     [self initData];
     rankingView.hidden = YES;
+//    [self initUI];
 }
 
 - (void)initUI {
@@ -72,7 +75,7 @@
             upPostArray = [[NSMutableArray alloc] init];
             upPostArray = [result objectForKey:@"up_posts"];
             
-            appController.pastPostArray = [[result objectForKey:@"up_posts"] mutableCopy];
+            appController.pastPostArray = [[result objectForKey:@"past_posts"] mutableCopy];
             
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
@@ -140,20 +143,81 @@
     
     [cell.mapView setRegion:region animated:YES];
     
-//        rankingTableViewCell *cell = (rankingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"rankingTableViewCell"];
+    NSString* profileImageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [[upPostArray objectAtIndex:indexPath.row] objectForKey:@"post_thumb_url"]];
+    [commonUtils setImageViewAFNetworking:cell.activityThumbImg withImageUrl:profileImageUrl withPlaceholderImage:[UIImage imageNamed:@"empty_photo"]];
+    
+    cell.cancelBtn.tag = indexPath.row * 2;
+    [cell.cancelBtn addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    cell.attendantsBtn.tag = indexPath.row * 2 + 1;
+    [cell.attendantsBtn addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
   
     return cell;
 }
 
+-(void) buttonPushed:(id)sender{
+    UIButton *button = (UIButton *)sender;
+    rowIndex = (int)button.tag / 2;
+    NSLog(@"%@", [upPostArray objectAtIndex:rowIndex]);
+    
+    switch (button.tag%2) {
+    case 0: {
+        NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
+        [paramDic setObject:[[upPostArray objectAtIndex:rowIndex] objectForKey:@"post_id"] forKey:@"post_id"];
+        [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
+        [paramDic setObject:@"0" forKey:@"is_join"];
+        [self requestAPIPostForCancel:paramDic];
+        break;
+    }
+    case 1:
+        [self performSegueWithIdentifier:@"showAttendantsFromUpAct" sender:nil];
+        break;
+    }
+}
 
-/*
+#pragma mark - API Request - get Recommended Post
+- (void)requestAPIPostForCancel:(NSMutableDictionary *)dic {
+    [commonUtils showActivityIndicatorColored:self.view];
+    [NSThread detachNewThreadSelector:@selector(requestDataPostForCancel:) toTarget:self withObject:dic];
+}
+
+- (void)requestDataPostForCancel:(id) params {
+    NSDictionary *resObj = nil;
+    resObj = [commonUtils httpJsonRequest:API_URL_JOIN_POST withJSON:(NSMutableDictionary *) params];
+    
+    [commonUtils hideActivityIndicator];
+    if (resObj != nil) {
+        NSDictionary *result = (NSDictionary *)resObj;
+        NSDecimalNumber *status = [result objectForKey:@"status"];
+        if([status intValue] == 1) {
+            
+            [self performSelector:@selector(requestOverPostForCancel) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
+        } else {
+            NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
+            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
+            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+        }
+    } else {
+        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+    }
+}
+
+- (void)requestOverPostForCancel {
+    [self initData];
+    [upTableView reloadData];
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"showAttendantsFromUpAct"]) {
+        ActivityListViewController *controller = segue.destinationViewController;
+        controller.postId = [[upPostArray objectAtIndex:rowIndex] objectForKey:@"post_id"];
+        controller.postName = [[upPostArray objectAtIndex:rowIndex] objectForKey:@"post_caption"];
+    }
 }
-*/
-
 @end
