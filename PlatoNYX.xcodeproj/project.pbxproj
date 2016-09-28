@@ -32,6 +32,7 @@
 		4B2021E31D5344B300A357AE /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2021E01D5344B300A357AE /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		4B2021E71D53481500A357AE /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2021E61D53481500A357AE /* SigninViewController.m */; };
 		4B37720C1D9AA3B200402CBB /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B37720B1D9AA3B200402CBB /* InviteViewController.m */; };
+		4B37720F1D9B0A3C00402CBB /* NotiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B37720E1D9B0A3C00402CBB /* NotiTableViewCell.m */; };
 		4B3A1E5D1D812FAB00B6FF34 /* ActivitySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A1E5C1D812FAB00B6FF34 /* ActivitySettingViewController.m */; };
 		4B3A1E601D81309F00B6FF34 /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A1E5F1D81309F00B6FF34 /* PreferenceViewController.m */; };
 		4B6558421D6CBE46003F43D2 /* rankingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6558411D6CBE46003F43D2 /* rankingTableViewCell.m */; };
@@ -351,6 +352,8 @@
 		4B2021E61D53481500A357AE /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SigninViewController.m; path = Entry/SigninViewController.m; sourceTree = "<group>"; };
 		4B37720A1D9AA3B200402CBB /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
 		4B37720B1D9AA3B200402CBB /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
+		4B37720D1D9B0A3C00402CBB /* NotiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiTableViewCell.h; sourceTree = "<group>"; };
+		4B37720E1D9B0A3C00402CBB /* NotiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiTableViewCell.m; sourceTree = "<group>"; };
 		4B3A1E5B1D812FAB00B6FF34 /* ActivitySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySettingViewController.h; sourceTree = "<group>"; };
 		4B3A1E5C1D812FAB00B6FF34 /* ActivitySettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySettingViewController.m; sourceTree = "<group>"; };
 		4B3A1E5E1D81309F00B6FF34 /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
@@ -842,6 +845,8 @@
 				4B6558411D6CBE46003F43D2 /* rankingTableViewCell.m */,
 				4BADFF021D8DAF5C0001CD19 /* JoinedUsersTableViewCell.h */,
 				4BADFF031D8DAF5C0001CD19 /* JoinedUsersTableViewCell.m */,
+				4B37720D1D9B0A3C00402CBB /* NotiTableViewCell.h */,
+				4B37720E1D9B0A3C00402CBB /* NotiTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1932,6 +1937,7 @@
 				4B860A0F1D557D3A002BD5C8 /* DraggableView.m in Sources */,
 				4B190B061D58E3E200DC3AD8 /* UserBaseViewController.m in Sources */,
 				4B8609F61D557D3A002BD5C8 /* AFNetworkReachabilityManager.m in Sources */,
+				4B37720F1D9B0A3C00402CBB /* NotiTableViewCell.m in Sources */,
 				4B190B051D58E3E200DC3AD8 /* MySidePanelController.m in Sources */,
 				4B860A0B1D557D3A002BD5C8 /* UIImage+fixOrientation.m in Sources */,
 				4BB21AC01D5DFCDC00E528EC /* ActivityListCollectionViewCell.m in Sources */,

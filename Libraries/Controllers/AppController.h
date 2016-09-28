@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *currentMenuTag;
 @property (nonatomic, assign) BOOL isMyProfileChanged;
 @property (nonatomic, assign) NSUInteger myBookingsPageStatus;
+@property (nonatomic, strong) NSMutableArray *msgs;
 
 // Utility Variables
 @property (nonatomic, strong) NSString *authSignInAlertMessage;

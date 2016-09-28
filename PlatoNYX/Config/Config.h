@@ -21,6 +21,7 @@
 #define API_URL_MY_POST (SERVER_URL @"/api/get_myPost")
 #define API_URL_UDATE_SETTING (SERVER_URL @"/api/update_settings")
 #define API_URL_GET_NOTI_LIST (SERVER_URL @"/api/get_noti_list")
+#define API_URL_READ_NOTI_LIST (SERVER_URL @"/api/read_noti_list")
 
 // MEDIA CONFIG
 #define MEDIA_BARK_PHOTO_SELF_DOMAIN_PREFIX @"wf_media_bark_photo_"

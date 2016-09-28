@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RankingViewController : UIViewController
+@interface RankingViewController : BaseViewController
 
 @property (strong, nonatomic) IBOutlet UIView *attendantsView;
 

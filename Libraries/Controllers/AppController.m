@@ -36,6 +36,7 @@ static AppController *_appController;
         //        _vAlert.iImage = [UIImage imageNamed:@"logo_top"];
         //        _vAlert.nContentMode = DoContentImage;
         
+        _msgs = [[NSMutableArray alloc] init];
         
         // Intro Images
         _introSliderImages = (NSMutableArray *) @[

@@ -77,7 +77,9 @@
     
     appController.apnsMessage = [[NSMutableDictionary alloc] init];
     appController.apnsMessage = [[userInfo objectForKey:@"aps"] objectForKey:@"info"];
+    [appController.msgs addObject:appController.apnsMessage];
     
+    [commonUtils setUserDefault:@"msg_count" withFormat:[NSString stringWithFormat:@"%lu", (unsigned long)[appController.msgs count]]];
     NSLog(@"APNS Info Fetched : %@", userInfo);
     NSLog(@"My Received Message : %@", appController.apnsMessage);
     
