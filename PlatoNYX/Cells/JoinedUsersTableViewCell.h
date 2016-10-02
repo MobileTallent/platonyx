@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *userLikeBtn;
 @property (strong, nonatomic) IBOutlet UIButton *userDislikeBtn;
 
+@property (strong, nonatomic) IBOutlet UIButton *userImgBtn;
 
 @end

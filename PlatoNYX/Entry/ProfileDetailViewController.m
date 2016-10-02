@@ -144,7 +144,7 @@
     
     cell.activityNamelbl.text = [[NSString alloc] initWithFormat:@"%@ Goes Here", [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"]];
     cell.activityPlacelbl.text = [[NSString alloc] initWithFormat:@"%@", [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_place"]];
-    cell.activityTimelbl.text = [[NSString alloc] initWithFormat:@"%@", [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_date"]];
+    cell.activityTimelbl.text = [[NSString alloc] initWithFormat:@"%@", [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_time"]];
     
     [commonUtils setCircleBorderImage:cell.activityPhotoImg withBorderWidth:1.0f withBorderColor:[UIColor whiteColor]];
     return cell;
