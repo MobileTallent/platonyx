@@ -75,7 +75,8 @@
                      ] mutableCopy];
     
     actSettingsDic = [[NSMutableDictionary alloc] init];
-    actSettingsDic = [appController.currentUserSettings mutableCopy];
+    
+//    actSettingsDic = [appController.currentUserSettings mutableCopy];
     
 }
 
@@ -87,10 +88,10 @@
     
     [commonUtils cropCircleButton:saveBtn];
     
-    int settings_pre_agerange = [[actSettingsDic objectForKey:@"settings_pre_agerange"] intValue];
-    int settings_pre_city = [[actSettingsDic objectForKey:@"settings_pre_city"] intValue];
-    int settings_pre_education = [[actSettingsDic objectForKey:@"settings_pre_education"] intValue];
-    int settings_pre_income = [[actSettingsDic objectForKey:@"settings_pre_income"] intValue];
+    int settings_pre_agerange = [[appController.currentUserSettings objectForKey:@"settings_pre_agerange"] intValue];
+    int settings_pre_city = [[appController.currentUserSettings objectForKey:@"settings_pre_city"] intValue];
+    int settings_pre_education = [[appController.currentUserSettings objectForKey:@"settings_pre_education"] intValue];
+    int settings_pre_income = [[appController.currentUserSettings objectForKey:@"settings_pre_income"] intValue];
     
     ageRangelbl.text = [[ageRangeArray objectAtIndex:settings_pre_agerange] objectForKey:@"text"];
     citylbl.text = [[cityArray objectAtIndex:settings_pre_city] objectForKey:@"text"];
@@ -173,6 +174,9 @@
     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
     [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
     [paramDic setObject:actSettingsDic forKey:@"user_settings"];
+    
+    NSLog(@"paramDic : %@", paramDic);
+    
     [self requestAPIPost:paramDic];
 }
 
@@ -192,12 +196,11 @@
         NSDictionary *result = (NSDictionary *)resObj;
         NSDecimalNumber *status = [result objectForKey:@"status"];
         if([status intValue] == 1) {
-            actSettingsDic = [result objectForKey:@"user_settings"];
             
             appController.currentUser = [[result objectForKey:@"current_user"] mutableCopy];
             [commonUtils setUserDefaultDic:@"current_user" withDic:appController.currentUser];
             
-            appController.currentUserSettings = [actSettingsDic mutableCopy];
+            appController.currentUserSettings = [[result objectForKey:@"user_settings"] mutableCopy];
             [commonUtils setUserDefaultDic:@"currentUserSettings" withDic:appController.currentUserSettings];
             
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
@@ -212,7 +215,7 @@
 }
 
 - (void)requestOverPost {
-    
+    NSLog(@"currentUserSettings : %@", appController.currentUserSettings);
 }
 
 @end

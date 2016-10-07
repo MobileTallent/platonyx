@@ -140,11 +140,19 @@
     ActivityTableViewCell *cell = (ActivityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"activityTableCell"];
 
     NSString* profileImageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_thumb_url"]];
-    [commonUtils setImageViewAFNetworking:cell.activityPhotoImg withImageUrl:profileImageUrl withPlaceholderImage:[UIImage imageNamed:@"empty_photo"]];
+    [commonUtils setImageViewAFNetworking:cell.activityPhotoImg withImageUrl:profileImageUrl withPlaceholderImage:[UIImage imageNamed:@"placeholder"]];
     
-    cell.activityNamelbl.text = [[NSString alloc] initWithFormat:@"%@ Goes Here", [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"]];
+    cell.activityNamelbl.text = [[NSString alloc] initWithFormat:@"%@", [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"]];
     cell.activityPlacelbl.text = [[NSString alloc] initWithFormat:@"%@", [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_place"]];
     cell.activityTimelbl.text = [[NSString alloc] initWithFormat:@"%@", [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_time"]];
+    
+    NSString *myString = [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_time"];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"hh:mm:ss";
+    NSDate *yourTime = [dateFormatter dateFromString:myString];
+    dateFormatter.dateFormat = @"hh:mm";
+    NSLog(@"%@",[dateFormatter stringFromDate:yourTime]);
+    cell.activityTimelbl.text = [[NSString alloc] initWithFormat:@"%@",[dateFormatter stringFromDate:yourTime]];
     
     [commonUtils setCircleBorderImage:cell.activityPhotoImg withBorderWidth:1.0f withBorderColor:[UIColor whiteColor]];
     return cell;

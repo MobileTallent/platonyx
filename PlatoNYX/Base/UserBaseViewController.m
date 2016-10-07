@@ -8,7 +8,6 @@
 
 #import "UserBaseViewController.h"
 
-
 @interface UserBaseViewController ()
 
 @end
@@ -22,8 +21,11 @@
     if([commonUtils getUserDefault:@"current_user_user_id"] != nil) {
         appController.currentUser = [commonUtils getUserDefaultDicByKey:@"current_user"];
         MySidePanelController *panelController = [self.storyboard instantiateViewControllerWithIdentifier:@"sidePanel"];
-        [self.navigationController presentViewController:panelController animated:NO completion: nil];
+//        [self.navigationController presentViewController:panelController animated:NO completion: nil];
+        [self.navigationController pushViewController:panelController animated:NO]; //:panelController animated:NO completion: nil];
+        
         return;
+        
     }
     if([[commonUtils getUserDefault:@"logged_out"] isEqualToString:@"1"]) {
         [commonUtils removeUserDefault:@"logged_out"];

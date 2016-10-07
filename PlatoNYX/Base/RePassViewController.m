@@ -23,22 +23,25 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)onBack:(id)sender {
-    if(self.isLoadingUserBase) return;
     [self.navigationController popViewControllerAnimated:YES];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)toLogin:(id)sender {
-    if(self.isLoadingUserBase) return;
     [self.navigationController popViewControllerAnimated:YES];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onRetrivePass:(id)sender {
-    if(self.isLoadingUserBase) return;
     
     if([commonUtils isFormEmpty:[@[self.emailTxt.text] mutableCopy]]) {
         [commonUtils showVAlertSimple:@"Warning" body:@"Please input your email address" duration:1.2];
@@ -53,14 +56,14 @@
 
 #pragma mark - API Request - User Retrieve Password
 - (void)requestAPI:(NSMutableDictionary *)dic {
-    self.isLoadingUserBase = YES;
+
     [commonUtils showActivityIndicatorThird:self.view];
     [NSThread detachNewThreadSelector:@selector(requestData:) toTarget:self withObject:dic];
 }
 - (void)requestData:(id) params {
     NSDictionary *resObj = nil;
     resObj = [commonUtils httpJsonRequest:API_URL_USER_RETRIEVE_PASSWORD withJSON:(NSMutableDictionary *) params];
-    self.isLoadingUserBase = NO;
+
     [commonUtils hideActivityIndicator];
     
     if (resObj != nil) {

@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>31</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -31,6 +31,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Access used to take a photo</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location is required to share and discover content</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location is required to share and discover content</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Entry of existing Photos</string>
 	<key>UILaunchStoryboardName</key>

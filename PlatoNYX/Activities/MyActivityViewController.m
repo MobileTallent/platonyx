@@ -11,6 +11,7 @@
 #import "rankingTableViewCell.h"
 #import "RankingViewController.h"
 #import "ActivityListViewController.h"
+#import "ActivityDetailViewController.h"
 
 @interface MyActivityViewController ()<UITableViewDataSource, UITableViewDelegate>{
     
@@ -131,7 +132,7 @@
     UpActivityTableViewCell *cell = (UpActivityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"UpActivityTableCell"];
     cell.activityNamelbl.text = [[upPostArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"];
     cell.descTxt.text = [[upPostArray objectAtIndex:indexPath.row] objectForKey:@"post_desc"];
-    
+    [cell.descTxt setTextColor:RGBA(168, 173, 191, 1.0f)];
     span.latitudeDelta = 0.5;
     span.longitudeDelta = 0.5;
     
@@ -144,34 +145,41 @@
     [cell.mapView setRegion:region animated:YES];
     
     NSString* profileImageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [[upPostArray objectAtIndex:indexPath.row] objectForKey:@"post_thumb_url"]];
-    [commonUtils setImageViewAFNetworking:cell.activityThumbImg withImageUrl:profileImageUrl withPlaceholderImage:[UIImage imageNamed:@"empty_photo"]];
+    [commonUtils setImageViewAFNetworking:cell.activityThumbImg withImageUrl:profileImageUrl withPlaceholderImage:[UIImage imageNamed:@"placeholder"]];
     
-    cell.cancelBtn.tag = indexPath.row * 2;
+    cell.cancelBtn.tag = indexPath.row * 3;
     [cell.cancelBtn addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
     
-    cell.attendantsBtn.tag = indexPath.row * 2 + 1;
+    cell.attendantsBtn.tag = indexPath.row * 3 + 1;
     [cell.attendantsBtn addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
-  
+    
+    cell.goDetailBtn.tag = indexPath.row * 3 + 2;
+    [cell.goDetailBtn addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
 -(void) buttonPushed:(id)sender{
     UIButton *button = (UIButton *)sender;
-    rowIndex = (int)button.tag / 2;
+    rowIndex = (int)button.tag / 3;
     NSLog(@"%@", [upPostArray objectAtIndex:rowIndex]);
     
-    switch (button.tag%2) {
-    case 0: {
-        NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
-        [paramDic setObject:[[upPostArray objectAtIndex:rowIndex] objectForKey:@"post_id"] forKey:@"post_id"];
-        [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
-        [paramDic setObject:@"0" forKey:@"is_join"];
-        [self requestAPIPostForCancel:paramDic];
-        break;
-    }
-    case 1:
-        [self performSegueWithIdentifier:@"showAttendantsFromUpAct" sender:nil];
-        break;
+    switch (button.tag % 3) {
+        case 0: {
+            NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
+            [paramDic setObject:[[upPostArray objectAtIndex:rowIndex] objectForKey:@"post_id"] forKey:@"post_id"];
+            [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
+            [paramDic setObject:@"0" forKey:@"is_join"];
+            [self requestAPIPostForCancel:paramDic];
+            break;
+        }
+        case 1: {
+            [self performSegueWithIdentifier:@"showAttendantsFromUpAct" sender:nil];
+            break;
+        }
+        case 2: {
+            [self performSegueWithIdentifier:@"showDetailFromUpAct" sender:nil];
+            break;
+        }
     }
 }
 
@@ -218,6 +226,10 @@
         ActivityListViewController *controller = segue.destinationViewController;
         controller.postId = [[upPostArray objectAtIndex:rowIndex] objectForKey:@"post_id"];
         controller.postName = [[upPostArray objectAtIndex:rowIndex] objectForKey:@"post_caption"];
+    }
+    if ([segue.identifier isEqualToString:@"showDetailFromUpAct"]) {
+        ActivityDetailViewController *controller = segue.destinationViewController;
+        controller.postDic = [[upPostArray objectAtIndex:rowIndex] mutableCopy];
     }
 }
 @end

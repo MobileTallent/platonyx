@@ -31,6 +31,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSString* actImageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [self.postDic objectForKey:@"post_photo_url"]];
+    [commonUtils setImageViewAFNetworking:activityPhotoImg withImageUrl:actImageUrl withPlaceholderImage:[UIImage imageNamed:@"profile_banner"]];
+    
     activityNamelbl.text = [self.postDic objectForKey:@"post_caption"];
     aboutTxt.text = [self.postDic objectForKey:@"post_desc"];
     cityNamelbl.text = [self.postDic objectForKey:@"post_place"];

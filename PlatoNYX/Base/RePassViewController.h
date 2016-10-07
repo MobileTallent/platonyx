@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RePassViewController : UserBaseViewController
+@interface RePassViewController : UIViewController
 
 @end

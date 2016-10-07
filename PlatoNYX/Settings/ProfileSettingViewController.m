@@ -77,6 +77,7 @@
 }
 
 - (void)initData {
+    
     genderArray = [[NSMutableArray alloc] init];
     genderArray = [@[
                      [@{@"tag" : @"1", @"text" : @"Kadın"} mutableCopy],
@@ -101,17 +102,15 @@
                      [@{@"tag" : @"1", @"text" : @"0-2.000 TL"} mutableCopy],
                      [@{@"tag" : @"2", @"text" : @"2.000-6.000 TL"} mutableCopy],
                      [@{@"tag" : @"3", @"text" : @"6.000-10.000 TL"} mutableCopy],
-                     [@{@"tag" : @"4", @"text" : @"10,000 TL"} mutableCopy],
-                     [@{@"tag" : @"5", @"text" : @"Farketmez"} mutableCopy]
+                     [@{@"tag" : @"4", @"text" : @"+10,000 TL"} mutableCopy]
                      ] mutableCopy];
     sexOrientationArray = [[NSMutableArray alloc] init];
     sexOrientationArray = [@[
-                             [@{@"tag" : @"1", @"text" : @"Heterosexual"} mutableCopy],
+                             [@{@"tag" : @"1", @"text" : @"Heteroseksüel"} mutableCopy],
                              [@{@"tag" : @"2", @"text" : @"Gay"} mutableCopy]
                              ] mutableCopy];
-    
     actSettingsDic = [[NSMutableDictionary alloc] init];
-    actSettingsDic = [appController.currentUserSettings mutableCopy];
+//    actSettingsDic = [appController.currentUserSettings mutableCopy];
 }
 
 - (void)initUI {
@@ -144,12 +143,20 @@
     
     [commonUtils cropCircleButton:saveBtn];
     
-    int settings_user_gender = [[actSettingsDic objectForKey:@"settings_user_gender"] intValue];
-    int settings_user_city = [[actSettingsDic objectForKey:@"settings_user_city"] intValue];
-    int settings_user_education = [[actSettingsDic objectForKey:@"settings_user_education"] intValue];
-    int settings_user_income = [[actSettingsDic objectForKey:@"settings_user_income"] intValue];
-    int settings_user_orientation = [[actSettingsDic objectForKey:@"settings_user_orientation"] intValue];
+    int settings_user_gender = [[appController.currentUserSettings objectForKey:@"settings_user_gender"] intValue];
+    int settings_user_city = [[appController.currentUserSettings objectForKey:@"settings_user_city"] intValue];
+    int settings_user_education = [[appController.currentUserSettings objectForKey:@"settings_user_education"] intValue];
+    int settings_user_income = [[appController.currentUserSettings objectForKey:@"settings_user_income"] intValue];
+    int settings_user_orientation = [[appController.currentUserSettings objectForKey:@"settings_user_orientation"] intValue];
     
+    [actSettingsDic setValue:[appController.currentUserSettings objectForKey:@"settings_user_gender"] forKey:@"settings_user_gender"];
+    [actSettingsDic setValue:[appController.currentUserSettings objectForKey:@"settings_user_city"] forKey:@"settings_user_city"];
+    [actSettingsDic setValue:[appController.currentUserSettings objectForKey:@"settings_user_education"] forKey:@"settings_user_education"];
+    [actSettingsDic setValue:[appController.currentUserSettings objectForKey:@"settings_user_income"] forKey:@"settings_user_income"];
+    [actSettingsDic setValue:[appController.currentUserSettings objectForKey:@"settings_user_orientation"] forKey:@"settings_user_orientation"];
+    
+    
+    birthDatelbl.text = [appController.currentUserSettings objectForKey:@"settings_user_birth"];
     genderlbl.text = [[genderArray objectAtIndex:settings_user_gender] objectForKey:@"text"];
     citylbl.text = [[cityArray objectAtIndex:settings_user_city] objectForKey:@"text"];
     educationlbl.text = [[educationArray objectAtIndex:settings_user_education] objectForKey:@"text"];
@@ -160,6 +167,7 @@
 }
 
 - (IBAction)upTab1Btn:(id)sender {
+    appController.currentUserSettings = [commonUtils getUserDefaultDicByKey:@"currentUserSettings"];
     [tab1Btn setBackgroundColor:RGBA(28, 36, 51, 1.0f)];
     [tab2Btn setBackgroundColor:RGBA(35, 45, 62, 1.0f)];
     [tab3Btn setBackgroundColor:RGBA(35, 45, 62, 1.0f)];
@@ -168,6 +176,7 @@
     profileSettingView.hidden = NO;
 }
 - (IBAction)upTab2Btn:(id)sender {
+    appController.currentUserSettings = [commonUtils getUserDefaultDicByKey:@"currentUserSettings"];
     [tab2Btn setBackgroundColor:RGBA(28, 36, 51, 1.0f)];
     [tab1Btn setBackgroundColor:RGBA(35, 45, 62, 1.0f)];
     [tab3Btn setBackgroundColor:RGBA(35, 45, 62, 1.0f)];
@@ -177,6 +186,7 @@
 }
 
 - (IBAction)upTab3Btn:(id)sender {
+    appController.currentUserSettings = [commonUtils getUserDefaultDicByKey:@"currentUserSettings"];
     [tab3Btn setBackgroundColor:RGBA(28, 36, 51, 1.0f)];
     [tab2Btn setBackgroundColor:RGBA(35, 45, 62, 1.0f)];
     [tab1Btn setBackgroundColor:RGBA(35, 45, 62, 1.0f)];
@@ -272,8 +282,8 @@
     if(![aboutTxtView.text isEqualToString:@""]){
         [actSettingsDic setValue:aboutTxtView.text forKey:@"user_about"];
     }
-    
-    if([oldPassTxt.text isEqualToString:confirmPassTxt.text]){
+
+    if([newPassTxt.text isEqualToString:confirmPassTxt.text] && ![oldPassTxt.text isEqualToString:@""]){
         [actSettingsDic setValue:[commonUtils md5:oldPassTxt.text] forKey:@"old_password"];
         [actSettingsDic setValue:[commonUtils md5:newPassTxt.text] forKey:@"new_password"];
     }else{
@@ -283,6 +293,11 @@
     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
     [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
     [paramDic setObject:actSettingsDic forKey:@"user_settings"];
+    
+    NSLog(@"paramDic : %@", paramDic);
+    
+    [self.view endEditing:YES];
+    
     [self requestAPIPost:paramDic];
 }
 
@@ -302,12 +317,11 @@
         NSDictionary *result = (NSDictionary *)resObj;
         NSDecimalNumber *status = [result objectForKey:@"status"];
         if([status intValue] == 1) {
-            actSettingsDic = [result objectForKey:@"user_settings"];
             
             appController.currentUser = [[result objectForKey:@"current_user"] mutableCopy];
             [commonUtils setUserDefaultDic:@"current_user" withDic:appController.currentUser];
             
-            appController.currentUserSettings = [actSettingsDic mutableCopy];
+            appController.currentUserSettings = [[result objectForKey:@"user_settings"] mutableCopy];
             [commonUtils setUserDefaultDic:@"currentUserSettings" withDic:appController.currentUserSettings];            
             
             NSLog(@"%@", [result objectForKey:@"msg"]);

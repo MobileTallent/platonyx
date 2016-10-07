@@ -24,6 +24,7 @@
     if(![commonUtils checkKeyInDic:@"user_id" inDic:appController.currentUser] || ![commonUtils checkKeyInDic:@"user_photo_url" inDic:appController.currentUser] || ![commonUtils checkKeyInDic:@"user_name" inDic:appController.currentUser]) {
         if([commonUtils getUserDefault:@"current_user_user_id"] != nil) {
             appController.currentUser = [commonUtils getUserDefaultDicByKey:@"current_user"];
+            appController.currentUserSettings = [commonUtils getUserDefaultDicByKey:@"currentUserSettings"];
         } else {
             [self dismissViewControllerAnimated:YES completion:nil];
         }

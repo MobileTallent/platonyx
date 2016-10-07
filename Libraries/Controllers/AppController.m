@@ -50,9 +50,10 @@ static AppController *_appController;
         _menuPages = [@[
                         [@{@"tag" : @"1", @"title" : @"Profilim"} mutableCopy],
                         [@{@"tag" : @"2", @"title" : @"Etkinliklerim"} mutableCopy],
-                        [@{@"tag" : @"3", @"title" : @"İletişim"} mutableCopy],
-                        [@{@"tag" : @"4", @"title" : @"Davet Et"} mutableCopy],
-                        [@{@"tag" : @"5", @"title" : @"Çıkış"} mutableCopy]
+                        [@{@"tag" : @"3", @"title" : @"Sıkça Sorulan Sorular"} mutableCopy],
+                        [@{@"tag" : @"4", @"title" : @"İletişim"} mutableCopy],
+                        [@{@"tag" : @"5", @"title" : @"Davet Et"} mutableCopy],
+                        [@{@"tag" : @"6", @"title" : @"Çıkış"} mutableCopy]
                         ] mutableCopy];
         
         

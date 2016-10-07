@@ -2,39 +2,50 @@
 //  Config.m
 
 
-#define SERVER_URL @"http://172.16.1.249/platonyx_api"
-//#define SERVER_URL @"http://platonyx.com/platonyx_api"
+//#define SERVER_URL @"http://172.16.1.249/platonyx_api"
+#define SERVER_URL @"http://platonyx.com/platonyx_api"
 
 #define API_KEY @"f1e3c46751ecd6e4cff88ffd948794cc"
 
 #define API_URL (SERVER_URL @"/api")
+
+// User info
+
 #define API_URL_USER_SIGNUP (SERVER_URL @"/api/user_signup")
 #define API_URL_USER_LOGIN (SERVER_URL @"/api/user_login")
 #define API_URL_USER_RETRIEVE_PASSWORD (SERVER_URL @"/api/user_retrieve_password")
 #define API_URL_USER_LOGOUT (SERVER_URL @"/api/user_logout")
+
+// Photo
+
 #define API_URL_PHOTO_UPDATE (SERVER_URL @"/api/user_photo_update")
 #define API_URL_PHOTO_ORDER (SERVER_URL @"/api/user_photo_order")
 #define API_URL_PHOTO_DEL (SERVER_URL @"/api/user_photo_delete")
+
+// Activity
+
 #define API_URL_REC_POST (SERVER_URL @"/api/get_post")
 #define API_URL_POST_ATTEND (SERVER_URL @"/api/get_attendants")
 #define API_URL_JOIN_POST (SERVER_URL @"/api/join_post")
 #define API_URL_MY_POST (SERVER_URL @"/api/get_myPost")
+#define API_URL_LIKE (SERVER_URL @"/api/like_post")
+
+// Settings Config
+
 #define API_URL_UDATE_SETTING (SERVER_URL @"/api/update_settings")
+
+// Notification List
+
 #define API_URL_GET_NOTI_LIST (SERVER_URL @"/api/get_noti_list")
 #define API_URL_READ_NOTI_LIST (SERVER_URL @"/api/read_noti_list")
 
-// MEDIA CONFIG
-#define MEDIA_BARK_PHOTO_SELF_DOMAIN_PREFIX @"wf_media_bark_photo_"
-#define MEDIA_BARK_VIDEO_SELF_DOMAIN_PREFIX @"wf_media_bark_video_"
-#define MEDIA_BARK_VIDEO_THUMB_SELF_DOMAIN_PREFIX @"wf_media_bark_video_thumb_"
+// Contact
 
-#define MEDIA_URL (SERVER_URL @"/assets/media/")
-#define MEDIA_URL_USERS (SERVER_URL @"/assets/media/users/")
-#define MEDIA_URL_BARK_PHOTOS (SERVER_URL @"/assets/media/bark_photos/")
-#define MEDIA_URL_BARK_VIDEOS (SERVER_URL @"/assets/media/bark_videos/")
-#define MEDIA_URL_BARK_VIDEO_THUMBS (SERVER_URL @"/assets/media/bark_video_thumbs/")
+#define API_URL_CONTACT (SERVER_URL @"/api/contactus_fromuser")
 
-// Settings Config
+// Invitation
+
+#define API_URL_INVITE (SERVER_URL @"/api/invite_fromuser")
 
 // Explore Barks Default Config
 #define EXPLORE_STYLISTS_COUNT_DEFAULT @"100"

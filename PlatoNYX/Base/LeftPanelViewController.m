@@ -120,16 +120,21 @@
             self.sidePanelController.centerPanel = navController;
             break;
         case 3:
-            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contactPage"];
+            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"faqPage"];
             navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
             self.sidePanelController.centerPanel = navController;
             break;
         case 4:
-            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"invitePage"];
+            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contactPage"];
             navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
             self.sidePanelController.centerPanel = navController;
             break;
         case 5:
+            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"invitePage"];
+            navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+            self.sidePanelController.centerPanel = navController;
+            break;
+        case 6:
             [self logout];
             break;
         default:
@@ -139,10 +144,16 @@
 
 - (void)logout {
     [commonUtils removeUserDefaultDic:@"current_user"];
-    [commonUtils removeUserDefault:@"flag_location_query_enabled"];
+    [commonUtils removeUserDefaultDic:@"currentUserSettings"];
     appController.currentUser = [[NSMutableDictionary alloc] init];
+    appController.currentUserSettings = [[NSMutableDictionary alloc] init];
     [commonUtils setUserDefault:@"logged_out" withFormat:@"1"];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+//    UINavigationController * myController = [self.storyboard instantiateViewControllerWithIdentifier:@"initNav"];
+//    [self presentViewController:myController animated:YES completion:nil];
+    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
 

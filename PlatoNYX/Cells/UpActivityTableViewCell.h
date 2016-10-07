@@ -16,5 +16,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UITextView *descTxt;
 @property (strong, nonatomic) IBOutlet UIButton *attendantsBtn;
+@property (strong, nonatomic) IBOutlet UIButton *goDetailBtn;
+
 
 @end

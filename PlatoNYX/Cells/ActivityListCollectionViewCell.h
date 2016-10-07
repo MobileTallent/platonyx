@@ -11,8 +11,7 @@
 @interface ActivityListCollectionViewCell : UICollectionViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *activityPhotoImgView;
-@property (strong, nonatomic) IBOutlet UILabel *activityUnamelbl;
-@property (strong, nonatomic) IBOutlet UILabel *activityGenderlbl;
+
 @property (strong, nonatomic) IBOutlet UILabel *activityAgelbl;
 
 @end

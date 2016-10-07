@@ -41,13 +41,27 @@
 
 - (void) initUI {
     NSString* actImageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [_itemDic objectForKey:@"post_photo_url"]];
-    [commonUtils setImageViewAFNetworking:photoImg withImageUrl:actImageUrl withPlaceholderImage:[UIImage imageNamed:@"empty_photo"]];
+    [commonUtils setImageViewAFNetworking:photoImg withImageUrl:actImageUrl withPlaceholderImage:[UIImage imageNamed:@"profile_banner"]];
     namelbl.text = [_itemDic objectForKey:@"post_caption"];
     aboutlbl.text = [_itemDic objectForKey:@"post_desc"];
     placelbl.text = [_itemDic objectForKey:@"post_place"];
-    timelbl.text = [_itemDic objectForKey:@"post_date"];
     pricelbl.text = [_itemDic objectForKey:@"post_price"];
     
+    NSString *myString = [_itemDic objectForKey:@"post_date"];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    NSDate *yourDate = [dateFormatter dateFromString:myString];
+    dateFormatter.dateFormat = @"dd MMM yyyy";
+    NSLog(@"%@",[dateFormatter stringFromDate:yourDate]);
+    
+    NSString *myString2 = [_itemDic objectForKey:@"post_time"];
+    NSDateFormatter* dateFormatter2 = [[NSDateFormatter alloc] init];
+    dateFormatter2.dateFormat = @"hh:mm:ss";
+    NSDate *yourTime = [dateFormatter2 dateFromString:myString2];
+    dateFormatter2.dateFormat = @"hh:mm";
+    NSLog(@"%@",[dateFormatter2 stringFromDate:yourTime]);
+    
+    timelbl.text = [[NSString alloc] initWithFormat:@"%@, %@",[dateFormatter2 stringFromDate:yourTime],  [dateFormatter stringFromDate:yourDate]];
     bottomBar.hidden = YES;
     
     [commonUtils setCircleBorderButton:joinActivityBtn withBorderWidth:1.0f withBorderColor:[appController appMainColor]];
@@ -106,6 +120,7 @@
 
 - (void)requestOverPost {
     bottomBar.hidden = NO;
+    joinActivityBtn.hidden = YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

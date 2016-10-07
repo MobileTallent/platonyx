@@ -101,13 +101,26 @@
     ActivityListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"attendantCell" forIndexPath:indexPath];
     itemDic = [mainArray objectAtIndex:indexPath.item];
     NSString* imageUrl = [[NSString alloc] initWithFormat:@"%@/%@", SERVER_URL, [itemDic objectForKey:@"user_photo_url"]];
-    [commonUtils setImageViewAFNetworking:cell.activityPhotoImgView withImageUrl:imageUrl withPlaceholderImage:[UIImage imageNamed:@"empty_photo"]];
+    [commonUtils setImageViewAFNetworking:cell.activityPhotoImgView withImageUrl:imageUrl withPlaceholderImage:[UIImage imageNamed:@"placeholder"]];
     
     [commonUtils setCircleBorderImage:cell.activityPhotoImgView withBorderWidth:2.0f withBorderColor:[UIColor whiteColor]];
     
-    cell.activityUnamelbl.text = [itemDic objectForKey:@"user_name"];
-    cell.activityGenderlbl.text = @"Man";
-    cell.activityAgelbl.text = @"33";
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *startD = [dateFormatter dateFromString:[itemDic objectForKey:@"settings_user_birth"]];
+    NSDate *endD = [NSDate date];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSUInteger unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;
+    NSDateComponents *components = [calendar components:unitFlags fromDate:startD toDate:endD options:0];
+    
+    NSInteger year  = [components year];
+    NSInteger month  = [components month];
+    NSInteger day  = [components day];
+    
+    NSLog(@"%ld:%ld:%ld", (long)year, (long)month,(long)day);
+    
+    cell.activityAgelbl.text = [[NSString alloc] initWithFormat:@"%@ %ld",[itemDic objectForKey:@"user_name"], (long)year];
     
     return cell;
 

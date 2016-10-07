@@ -178,6 +178,9 @@
 		4BD103471D63D5F20032280E /* LSCollectionViewLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1033E1D63D5F20032280E /* LSCollectionViewLayoutHelper.m */; };
 		4BD103481D63D5F20032280E /* DraggableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD103411D63D5F20032280E /* DraggableCollectionViewFlowLayout.m */; };
 		4BD103491D63D5F20032280E /* UICollectionView+Draggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD103431D63D5F20032280E /* UICollectionView+Draggable.m */; };
+		4BDAA4231DA6AA280099E0D7 /* FaqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDAA4221DA6AA280099E0D7 /* FaqViewController.m */; };
+		4BDAA4261DA6FE760099E0D7 /* FaqTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDAA4251DA6FE760099E0D7 /* FaqTableViewCell.m */; };
+		4BDAA4291DA7D6860099E0D7 /* EntryWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDAA4281DA7D6860099E0D7 /* EntryWebViewController.m */; };
 		4BF535AB1D59801400379CA7 /* back1off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF535381D59801400379CA7 /* back1off@2x.png */; };
 		4BF535AC1D59801400379CA7 /* back1on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF535391D59801400379CA7 /* back1on@2x.png */; };
 		4BF535AD1D59801400379CA7 /* back_btn_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF5353A1D59801400379CA7 /* back_btn_off@2x.png */; };
@@ -590,6 +593,12 @@
 		4BD103431D63D5F20032280E /* UICollectionView+Draggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Draggable.m"; sourceTree = "<group>"; };
 		4BD103441D63D5F20032280E /* UICollectionViewDataSource_Draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewDataSource_Draggable.h; sourceTree = "<group>"; };
 		4BD103451D63D5F20032280E /* UICollectionViewLayout_Warpable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLayout_Warpable.h; sourceTree = "<group>"; };
+		4BDAA4211DA6AA280099E0D7 /* FaqViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqViewController.h; sourceTree = "<group>"; };
+		4BDAA4221DA6AA280099E0D7 /* FaqViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqViewController.m; sourceTree = "<group>"; };
+		4BDAA4241DA6FE760099E0D7 /* FaqTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaqTableViewCell.h; sourceTree = "<group>"; };
+		4BDAA4251DA6FE760099E0D7 /* FaqTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaqTableViewCell.m; sourceTree = "<group>"; };
+		4BDAA4271DA7D6860099E0D7 /* EntryWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryWebViewController.h; path = Entry/EntryWebViewController.h; sourceTree = "<group>"; };
+		4BDAA4281DA7D6860099E0D7 /* EntryWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntryWebViewController.m; path = Entry/EntryWebViewController.m; sourceTree = "<group>"; };
 		4BF535381D59801400379CA7 /* back1off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back1off@2x.png"; sourceTree = "<group>"; };
 		4BF535391D59801400379CA7 /* back1on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back1on@2x.png"; sourceTree = "<group>"; };
 		4BF5353A1D59801400379CA7 /* back_btn_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_btn_off@2x.png"; sourceTree = "<group>"; };
@@ -847,6 +856,8 @@
 				4BADFF031D8DAF5C0001CD19 /* JoinedUsersTableViewCell.m */,
 				4B37720D1D9B0A3C00402CBB /* NotiTableViewCell.h */,
 				4B37720E1D9B0A3C00402CBB /* NotiTableViewCell.m */,
+				4BDAA4241DA6FE760099E0D7 /* FaqTableViewCell.h */,
+				4BDAA4251DA6FE760099E0D7 /* FaqTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -915,6 +926,8 @@
 				4BB6FC701D54B563005ACF69 /* ProfileDetailViewController.m */,
 				4BB6FC721D54B57D005ACF69 /* ProfileViewController.h */,
 				4BB6FC731D54B57D005ACF69 /* ProfileViewController.m */,
+				4BDAA4271DA7D6860099E0D7 /* EntryWebViewController.h */,
+				4BDAA4281DA7D6860099E0D7 /* EntryWebViewController.m */,
 			);
 			name = Entry;
 			sourceTree = "<group>";
@@ -949,6 +962,8 @@
 				4B3A1E5C1D812FAB00B6FF34 /* ActivitySettingViewController.m */,
 				4B3A1E5E1D81309F00B6FF34 /* PreferenceViewController.h */,
 				4B3A1E5F1D81309F00B6FF34 /* PreferenceViewController.m */,
+				4BDAA4211DA6AA280099E0D7 /* FaqViewController.h */,
+				4BDAA4221DA6AA280099E0D7 /* FaqViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1936,6 +1951,7 @@
 				4B860ACB1D557D3A002BD5C8 /* UIProgressView+AFNetworking.m in Sources */,
 				4B860A0F1D557D3A002BD5C8 /* DraggableView.m in Sources */,
 				4B190B061D58E3E200DC3AD8 /* UserBaseViewController.m in Sources */,
+				4BDAA4291DA7D6860099E0D7 /* EntryWebViewController.m in Sources */,
 				4B8609F61D557D3A002BD5C8 /* AFNetworkReachabilityManager.m in Sources */,
 				4B37720F1D9B0A3C00402CBB /* NotiTableViewCell.m in Sources */,
 				4B190B051D58E3E200DC3AD8 /* MySidePanelController.m in Sources */,
@@ -1943,6 +1959,7 @@
 				4BB21AC01D5DFCDC00E528EC /* ActivityListCollectionViewCell.m in Sources */,
 				4B8609FB1D557D3A002BD5C8 /* AFURLSessionManager.m in Sources */,
 				4B860A161D557D3A002BD5C8 /* SBJsonParser.m in Sources */,
+				4BDAA4231DA6AA280099E0D7 /* FaqViewController.m in Sources */,
 				4B860AC61D557D3A002BD5C8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				4BB6FC741D54B57D005ACF69 /* ProfileViewController.m in Sources */,
 				4BF5360B1D59801400379CA7 /* PBJViewController.m in Sources */,
@@ -1969,6 +1986,7 @@
 				4B190B031D58E3E200DC3AD8 /* BaseViewController.m in Sources */,
 				4B860ACA1D557D3A002BD5C8 /* UIImageView+AFNetworking.m in Sources */,
 				4BC94B001D5D75C600D4094A /* ActivityListViewController.m in Sources */,
+				4BDAA4261DA6FE760099E0D7 /* FaqTableViewCell.m in Sources */,
 				4BD103461D63D5F20032280E /* LSCollectionViewHelper.m in Sources */,
 				4B17B7021D691E5D00955AA5 /* NZCircularImageView.m in Sources */,
 				4B860A121D557D3A002BD5C8 /* NSObject+SBJSON.m in Sources */,
