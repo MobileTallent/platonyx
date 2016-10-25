@@ -13,6 +13,7 @@
 #import "ActivityPageViewController.h"
 
 #define _isCameraAvailable [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]
+#define MY_VIEW_TAG 1000;
 
 @interface ProfileDetailViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>{
 
@@ -79,18 +80,36 @@
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 
 - (void)requestOverPost {
-    [postTableView reloadData];
+    [self reloadData:YES];
+    
     if([postArray count] > visibleCellsCount)
         backLineView.hidden = NO;
+}
+
+- (void)reloadData:(BOOL)animated
+{
+    [postTableView reloadData];
+    
+    if (animated) {
+        
+        CATransition *animation = [CATransition animation];
+        [animation setType:kCATransitionPush];
+        [animation setSubtype:kCATransitionFromLeft];
+        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+        [animation setFillMode:kCAFillModeBoth];
+        [animation setDuration:.3];
+        [postTableView.layer addAnimation:animation forKey:@"UITableViewReloadDataAnimationKey"];
+        
+    }
 }
 
 - (void) initView {
@@ -148,14 +167,25 @@
     
     NSString *myString = [[postArray objectAtIndex:indexPath.row] objectForKey:@"post_time"];
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"hh:mm:ss";
+    dateFormatter.dateFormat = @"H:m:s";
     NSDate *yourTime = [dateFormatter dateFromString:myString];
-    dateFormatter.dateFormat = @"hh:mm";
+    dateFormatter.dateFormat = @"HH:mm";
     NSLog(@"%@",[dateFormatter stringFromDate:yourTime]);
-    cell.activityTimelbl.text = [[NSString alloc] initWithFormat:@"%@",[dateFormatter stringFromDate:yourTime]];
+    cell.activityTimelbl.text = [[NSString alloc] initWithFormat:@"%@", [dateFormatter stringFromDate:yourTime]];
     
     [commonUtils setCircleBorderImage:cell.activityPhotoImg withBorderWidth:1.0f withBorderColor:[UIColor whiteColor]];
+    
+    cell.contentView.tag = indexPath.row;
+    
     return cell;
+}
+
+-(void) tableView:(UITableView *) tableView willDisplayCell:(UITableViewCell *) cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //row number on which you want to animate your view
+    //row number could be either 0 or 1 as you are creating two cells
+    //suppose you want to animate view on cell at 0 index
+    // access the view which you want to animate from it's tag
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {

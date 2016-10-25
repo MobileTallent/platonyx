@@ -11,6 +11,7 @@
 @implementation SideMenuTableViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

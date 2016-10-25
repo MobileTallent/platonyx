@@ -73,7 +73,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == rankingTableView) {
-        return 182;
+        return 205;
     }else
         return 70;
 }
@@ -81,9 +81,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == rankingTableView) {
         rankingTableViewCell *rcell = (rankingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"rankingTableViewCell"];
-    
-        rcell.activityNamelbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"];
-        rcell.placelbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_place"];
+        rcell.activityCaplbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"];
+//        rcell.activityNamelbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"];
+//        rcell.placelbl.text = [[pastPostArray objectAtIndex:indexPath.row] objectForKey:@"post_place"];
         rcell.viewAttendantsBtn.tag = indexPath.row * 1000;
         [rcell.viewAttendantsBtn addTarget:self
                     action:@selector(onCellBtn:)
@@ -309,11 +309,11 @@
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 

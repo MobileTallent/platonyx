@@ -27,7 +27,7 @@
     [commonUtils cropCircleButton:submitBtn];
     if([[appController.currentUser objectForKey:@"user_invite_limit"] intValue] < 1)
     {
-        [commonUtils showVAlertSimple:@"" body:@"You cannot send request this month." duration:1.0];
+        [commonUtils showVAlertSimple:@"" body:@"Bu ayki kotanız doldu." duration:1.0];
     }
 }
 
@@ -43,10 +43,10 @@
 - (IBAction)onSendBtn:(id)sender {
     if([[appController.currentUser objectForKey:@"user_invite_limit"] intValue] < 1)
     {
-        [commonUtils showVAlertSimple:@"" body:@"You cannot send request this month." duration:1.0];
+        [commonUtils showVAlertSimple:@"" body:@"Bu ayki kotanız doldu." duration:1.0];
     }else{
         if([emailInputTxt.text isEqualToString:@""]){
-            [commonUtils showVAlertSimple:@"" body:@"Please complete entire form." duration:1.0];
+            [commonUtils showVAlertSimple:@"" body:@"Lütfen formun tamamını doldurunuz." duration:1.0];
         }else{
             NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
             [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
@@ -83,19 +83,19 @@
             
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         }else if([status intValue] == 2){
-            [commonUtils showVAlertSimple:@"Invitation Error" body:@"This email has already invitation code." duration:1.0];
+            [commonUtils showVAlertSimple:@"Hata" body:@"Bu e-posta adresine zaten bir davet gitmiş." duration:1.0];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz.";
             [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 
 - (void)requestOverPost {
-    [commonUtils showVAlertSimple:@"" body:@"Your request sent successfully." duration:1.0];
+    [commonUtils showVAlertSimple:@"" body:@"Başarıyla gönderildi." duration:1.0];
     [self initData];
 }
 

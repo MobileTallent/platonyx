@@ -33,6 +33,10 @@
 #import "MySidePanelController.h"
 #import "LeftPanelViewController.h"
 #import "ProfileDetailViewController.h"
+#import "MyActivityViewController.h"
+#import "FaqViewController.h"
+#import "ContactViewController.h"
+#import "InviteViewController.h"
 
 #import "Place.h"
 #import "PlaceMark.h"

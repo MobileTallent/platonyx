@@ -12,6 +12,7 @@
 @interface FaqViewController ()<UITableViewDelegate, UITableViewDataSource> {
     
     NSMutableArray *faqArray;
+    IBOutlet UITableView *faqTableView;
 }
 
 @end
@@ -48,16 +49,36 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     return [faqArray count];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *text1 = [[faqArray objectAtIndex:indexPath.row] objectForKey:@"question"];
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    CGSize constraint1 = CGSizeMake(screenSize.width - (CELL_CONTENT_MARGIN * 2) - 21, 20000.0f);
+    CGSize size1 = [text1 sizeWithFont:[UIFont systemFontOfSize:BIG_FONT_SIZE] constrainedToSize:constraint1];
+    
+    NSString *text2 = [[faqArray objectAtIndex:indexPath.row] objectForKey:@"answer"];
+    CGSize constraint2 = CGSizeMake(screenSize.width - (CELL_CONTENT_MARGIN * 2), 20000.0f);
+    CGSize size2 = [text2 sizeWithFont:[UIFont systemFontOfSize:SMALL_FONT_SIZE] constrainedToSize:constraint2];
+    CGFloat height;
+    
+    height = size1.height + CELL_CONTENT_MARGIN + size2.height + (CELL_CONTENT_MARGIN * 2) + 30.0f;
+    
+    
+    return height;
+    
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
      FaqTableViewCell *cell = (FaqTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FaqTableViewCell"];
 
     cell.facNumlbl.text = [[NSString alloc] initWithFormat:@"%ld", (long)indexPath.row + 1];
     cell.questionlbl.text = [[faqArray objectAtIndex:indexPath.row] objectForKey:@"question"];
-    cell.contentlbl.text = [[faqArray objectAtIndex:indexPath.row] objectForKey:@"answer"];
+    
+    cell.answerlbl.text = [[faqArray objectAtIndex:indexPath.row] objectForKey:@"answer"];
     
     return cell;
 }
@@ -65,15 +86,5 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

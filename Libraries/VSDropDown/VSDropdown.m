@@ -61,6 +61,7 @@ static const NSTimeInterval kDefaultDuration = 0.25;
 
 -(void)awakeFromNib
 {
+    [super awakeFromNib];
     [self setBackgroundColor:[UIColor clearColor]];
 }
 

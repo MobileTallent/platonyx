@@ -44,9 +44,9 @@
 - (IBAction)onRetrivePass:(id)sender {
     
     if([commonUtils isFormEmpty:[@[self.emailTxt.text] mutableCopy]]) {
-        [commonUtils showVAlertSimple:@"Warning" body:@"Please input your email address" duration:1.2];
+        [commonUtils showVAlertSimple:@"" body:@"Lütfen e-posta adresinizi girin" duration:1.2];
     } else if(![commonUtils validateEmail:self.emailTxt.text]) {
-        [commonUtils showVAlertSimple:@"Warning" body:@"Email address is not in a vaild format" duration:1.2];
+        [commonUtils showVAlertSimple:@"" body:@"E-posta adresinizde bir takım yanlışlıklar var" duration:1.2];
     } else {
         NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
         [paramDic setObject:self.emailTxt.text forKey:@"user_email"];
@@ -73,17 +73,17 @@
             [self performSelector:@selector(requestOver) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status." duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 - (void)requestOver {
     [self.emailTxt resignFirstResponder];
     [appController.vAlert doAlert:@"Success"
-                             body:@"Your new password will arrive by email"
+                             body:@"Yeni şifreniz e-posta adresinize gönderildi"
                          duration:1.5f
                              done:^(DoAlertView *alertView) {
                                  [self.navigationController popViewControllerAnimated:YES];

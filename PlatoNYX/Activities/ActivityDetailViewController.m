@@ -17,6 +17,7 @@
     IBOutlet MKMapView *mapView;
     IBOutlet UILabel *cityNamelbl;
     IBOutlet UILabel *addresslbl;
+    IBOutlet UILabel *timelbl;
     
     CLLocationCoordinate2D location;
     MKCoordinateRegion region;
@@ -36,19 +37,49 @@
     
     activityNamelbl.text = [self.postDic objectForKey:@"post_caption"];
     aboutTxt.text = [self.postDic objectForKey:@"post_desc"];
+    
+    [aboutTxt setTextColor:RGBA(168, 173, 191, 1.0)];
+    
     cityNamelbl.text = [self.postDic objectForKey:@"post_place"];
     addresslbl.text = [self.postDic objectForKey:@"post_address"];
     
-    span.latitudeDelta = 0.5;
-    span.longitudeDelta = 0.5;
+    span.latitudeDelta = 0.01;
+    span.longitudeDelta = 0.01;
     
     location.latitude = [[self.postDic objectForKey:@"post_lati"] doubleValue];
-    location.longitude = [[self.postDic objectForKey:@"post_long"] doubleValue];
+    location.longitude = [[self.postDic objectForKey:@"post_long"] doubleValue];;
+    
+    region.span = span;
+    region.center = location;
+    
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.coordinate = location;
+    [mapView addAnnotation:annotation];
+
     
     region.span = span;
     region.center = location;
     
     [mapView setRegion:region animated:YES];
+    
+    NSString *myString = [self.postDic objectForKey:@"post_date"];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    NSDate *yourDate = [dateFormatter dateFromString:myString];
+    dateFormatter.dateFormat = @"dd MMM yyyy";
+    [dateFormatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"tr-TR"]];
+    NSLog(@"%@",[dateFormatter stringFromDate:yourDate]);
+    
+    NSString *myString2 = [self.postDic objectForKey:@"post_time"];
+    NSDateFormatter* dateFormatter2 = [[NSDateFormatter alloc] init];
+    dateFormatter2.dateFormat = @"HH:mm:ss";
+    NSDate *yourTime = [dateFormatter2 dateFromString:myString2];
+    dateFormatter2.dateFormat = @"HH:mm";
+    NSLog(@"%@",[dateFormatter2 stringFromDate:yourTime]);
+    
+    timelbl.text = [[NSString alloc] initWithFormat:@"%@, %@",[dateFormatter2 stringFromDate:yourTime],  [dateFormatter stringFromDate:yourDate]];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

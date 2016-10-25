@@ -89,7 +89,7 @@
         [self presentViewController:imagePicker animated:YES completion:NULL];
     } else{
         NSLog(@"Camera Source Not Available ");
-        [commonUtils showAlert:@"Warning" withMessage:@"Your device has no camera"];
+        [commonUtils showAlert:@"Uyarı" withMessage:@"Telefonunuzda bir kameraya rastlayamadık"];
         return;
     }
 }
@@ -157,11 +157,11 @@
             [self performSelector:@selector(requestOverUserProfileChange) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Warning" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 
@@ -191,11 +191,11 @@
 //            [self performSelector:@selector(requestOverUserProfileChange) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Photo transmission Failed!";
-            [commonUtils showVAlertSimple:@"Warning" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Fotoğraf işlemi başarısız oldu";
+            [commonUtils showVAlertSimple:@"Uyarı" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 
@@ -227,8 +227,8 @@
 -(void)delButtonClicked:(UIButton*)sender
 {
     NSInteger rowIndex = sender.tag;
-    [appController.vAlert doYesNo:@"Confirm"
-                             body:@"Are you sure you want to delete this photo?"
+    [appController.vAlert doYesNo:@"Onayla"
+                             body:@"Bu fotoğrafı silmek istediğinizden emin misiniz?"
                               yes:^(DoAlertView *alertView) {
                                   NSMutableDictionary *dic = [mainArray objectAtIndex:rowIndex];
                                   NSMutableDictionary *paramdic = [[NSMutableDictionary alloc] init];
@@ -284,11 +284,11 @@
             [_photoCollectionView reloadData];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Photo delete Failed!";
-            [commonUtils showVAlertSimple:@"Warning" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Fotoğraf silme işlemi başarısız oldu.";
+            [commonUtils showVAlertSimple:@"" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 
@@ -338,7 +338,7 @@
         [commonUtils showActivityIndicatorColored:self.view];
         [NSThread detachNewThreadSelector:@selector(requestDataPhotoOrderChange:) toTarget:self withObject:paramdic];
     }else{
-        [commonUtils showVAlertSimple:@"Warning" body:@"You cannot move empty photo." duration:1.4];
+        [commonUtils showVAlertSimple:@"" body:@"Boş fotoğrafı yerinden oynatmanız mümkün değil." duration:1.4];
     }
 }
 

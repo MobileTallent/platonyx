@@ -44,6 +44,9 @@
     [commonUtils setImageViewAFNetworking:photoImg withImageUrl:actImageUrl withPlaceholderImage:[UIImage imageNamed:@"profile_banner"]];
     namelbl.text = [_itemDic objectForKey:@"post_caption"];
     aboutlbl.text = [_itemDic objectForKey:@"post_desc"];
+    
+    [aboutlbl setTextColor:RGBA(168, 173, 191, 1.0)];
+    
     placelbl.text = [_itemDic objectForKey:@"post_place"];
     pricelbl.text = [_itemDic objectForKey:@"post_price"];
     
@@ -52,13 +55,14 @@
     dateFormatter.dateFormat = @"yyyy-MM-dd";
     NSDate *yourDate = [dateFormatter dateFromString:myString];
     dateFormatter.dateFormat = @"dd MMM yyyy";
+    [dateFormatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"tr-TR"]];
     NSLog(@"%@",[dateFormatter stringFromDate:yourDate]);
     
     NSString *myString2 = [_itemDic objectForKey:@"post_time"];
     NSDateFormatter* dateFormatter2 = [[NSDateFormatter alloc] init];
-    dateFormatter2.dateFormat = @"hh:mm:ss";
+    dateFormatter2.dateFormat = @"HH:mm:ss";
     NSDate *yourTime = [dateFormatter2 dateFromString:myString2];
-    dateFormatter2.dateFormat = @"hh:mm";
+    dateFormatter2.dateFormat = @"HH:mm";
     NSLog(@"%@",[dateFormatter2 stringFromDate:yourTime]);
     
     timelbl.text = [[NSString alloc] initWithFormat:@"%@, %@",[dateFormatter2 stringFromDate:yourTime],  [dateFormatter stringFromDate:yourDate]];
@@ -110,11 +114,11 @@
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 

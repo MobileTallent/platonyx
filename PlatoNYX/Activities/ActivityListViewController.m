@@ -54,6 +54,7 @@
     _actNamelbl.text = self.postName;
     
     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
+    [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
     [paramDic setObject:_postId forKey:@"post_id"];
     [self requestAPIPost:paramDic];
 }
@@ -79,18 +80,33 @@
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 
 - (void)requestOverPost {
-    [_attendCollectionView reloadData];
+    [self reloadData:YES];
 }
 
+- (void)reloadData:(BOOL)animated
+{
+    [_attendCollectionView reloadData];
+    
+    if (animated) {
+        
+        CATransition *animation = [CATransition animation];
+        [animation setType:kCATransitionPush];
+        [animation setSubtype:kCATransitionFromBottom];
+        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+        [animation setFillMode:kCAFillModeBoth];
+        [animation setDuration:.3];
+        [_attendCollectionView.layer addAnimation:animation forKey:@"UICollectionViewReloadDataAnimationKey"];
+    }
+}
 
 #pragma mark - UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

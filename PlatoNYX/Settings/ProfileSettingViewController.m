@@ -92,8 +92,8 @@
     educationArray = [[NSMutableArray alloc] init];
     educationArray = [@[
                     [@{@"tag" : @"1", @"text" : @"Lise Mezunu"} mutableCopy],
-                    [@{@"tag" : @"2", @"text" : @"Üniversite Mezunu"} mutableCopy],
-                    [@{@"tag" : @"3", @"text" : @"Yüksek Lisans"} mutableCopy],
+                    [@{@"tag" : @"2", @"text" : @"Üniv. Mezunu"} mutableCopy],
+                    [@{@"tag" : @"3", @"text" : @"Y. Lisans"} mutableCopy],
                     [@{@"tag" : @"4", @"text" : @"Doktora"} mutableCopy],
                     [@{@"tag" : @"5", @"text" : @"Farketmez"} mutableCopy]
                     ] mutableCopy];
@@ -329,11 +329,11 @@
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 

@@ -48,7 +48,7 @@
     
         [self requestAPIPost:paramDic];
     }else{
-        [commonUtils showVAlertSimple:@"Warning" body:@"Content length should be less than 550." duration:1.2];
+        [commonUtils showVAlertSimple:@"Uyarı" body:@"İçerik 550 karakter sınırını geçmemelidir." duration:1.2];
     }
 }
 
@@ -74,16 +74,16 @@
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 
 - (void)requestOverPost {
-    [commonUtils showVAlertSimple:@"" body:@"Your request sent successfully." duration:1.0];
+    [commonUtils showVAlertSimple:@"" body:@"Başarıyla gönderildi." duration:1.0];
 }
 
 /*

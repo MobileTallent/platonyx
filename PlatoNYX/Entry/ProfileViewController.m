@@ -60,8 +60,8 @@
     educationArray = [[NSMutableArray alloc] init];
     educationArray = [@[
                         [@{@"tag" : @"1", @"text" : @"Lise Mezunu"} mutableCopy],
-                        [@{@"tag" : @"2", @"text" : @"Üniversite Mezunu"} mutableCopy],
-                        [@{@"tag" : @"3", @"text" : @"Yüksek Lisans"} mutableCopy],
+                        [@{@"tag" : @"2", @"text" : @"Üniv. Mezunu"} mutableCopy],
+                        [@{@"tag" : @"3", @"text" : @"Y. Lisans"} mutableCopy],
                         [@{@"tag" : @"4", @"text" : @"Doktora"} mutableCopy],
                         [@{@"tag" : @"5", @"text" : @"Farketmez"} mutableCopy]
                         ] mutableCopy];
@@ -118,6 +118,8 @@
 //    signlbl.text = [_itemDic objectForKey:@"user_name"];
     educationlbl.text = [[educationArray objectAtIndex:settings_user_education] objectForKey:@"text"];
     aboutlbl.text = [_itemDic objectForKey:@"user_about"];
+    
+    [aboutlbl setTextColor:RGBA(168, 173, 191, 1.0)];
 }
 
 - (void)didReceiveMemoryWarning {

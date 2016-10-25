@@ -31,7 +31,6 @@
 - (void)removeUserDefaultDic:(NSString *)key;
 
 - (BOOL)isUserLoggedIn;
-- (UIImage *) userImage;
 - (NSString *)getBlankString:(NSString *)str;
 
 - (void) cropCircleImage:(UIImageView *)imageView;
@@ -53,7 +52,6 @@
 - (void) setTextViewBorder:(UITextView *)textView withColor:(UIColor *)color withBorderWidth:(float)width withCornerRadius:(float)radius;
 - (void) setTextViewMargin:(UITextView *)textView valX:(float)x valY:(float)y valW:(float)w valH:(float)h;
 
-- (NSString *) getFullPhotoUrl:(NSString *)url withType:(NSString *)type;
 - (NSMutableArray *) getPointsFromString:(NSString *)str;
 
 - (BOOL) checkStringNumeric:(NSString *) str;

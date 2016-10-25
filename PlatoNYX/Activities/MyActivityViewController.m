@@ -13,7 +13,7 @@
 #import "ActivityListViewController.h"
 #import "ActivityDetailViewController.h"
 
-@interface MyActivityViewController ()<UITableViewDataSource, UITableViewDelegate>{
+@interface MyActivityViewController ()<UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>{
     
     IBOutlet UITableView *upTableView;
     IBOutlet UIView *rankingView;
@@ -23,6 +23,7 @@
     NSMutableArray *upPostArray;
     
     CLLocationCoordinate2D location;
+    Place *place;
     MKCoordinateRegion region;
     MKCoordinateSpan span;
     int rowIndex;
@@ -81,11 +82,11 @@
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 
@@ -132,15 +133,20 @@
     UpActivityTableViewCell *cell = (UpActivityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"UpActivityTableCell"];
     cell.activityNamelbl.text = [[upPostArray objectAtIndex:indexPath.row] objectForKey:@"post_caption"];
     cell.descTxt.text = [[upPostArray objectAtIndex:indexPath.row] objectForKey:@"post_desc"];
+    
     [cell.descTxt setTextColor:RGBA(168, 173, 191, 1.0f)];
-    span.latitudeDelta = 0.5;
-    span.longitudeDelta = 0.5;
+    span.latitudeDelta = 0.005;
+    span.longitudeDelta = 0.005;
     
     location.latitude = [[[upPostArray objectAtIndex:indexPath.row] objectForKey:@"post_lati"] doubleValue];
     location.longitude = [[[upPostArray objectAtIndex:indexPath.row] objectForKey:@"post_long"] doubleValue];
     
     region.span = span;
     region.center = location;
+    
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.coordinate = location;
+    [cell.mapView addAnnotation:annotation];
     
     [cell.mapView setRegion:region animated:YES];
     
@@ -202,11 +208,11 @@
             [self performSelector:@selector(requestOverPostForCancel) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 
@@ -214,7 +220,6 @@
     [self initData];
     [upTableView reloadData];
 }
-
 
 #pragma mark - Navigation
 

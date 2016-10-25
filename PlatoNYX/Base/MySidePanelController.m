@@ -28,8 +28,8 @@
 
 - (void)viewDidLoad
 {
-    self.leftGapPercentage = 160.0f / 320.0f;
     [super viewDidLoad];
+    self.leftGapPercentage = 160.0f / 320.0f;
 }
 
 
@@ -39,36 +39,36 @@
     i++;
 }
 
--(NSUInteger)supportedInterfaceOrientations{
-    
-    UIDevice *device = [UIDevice currentDevice];
-    
-    if(device.userInterfaceIdiom == UIUserInterfaceIdiomPad)
-    {
-        self.bounceOnCenterPanelChange = NO;
-        if (UIInterfaceOrientationIsLandscape((UIInterfaceOrientation)device.orientation))
-        {
-            //NSLog(@"Change to custom UI for landscape");
-            self.rightGapPercentage = 0.30f;
-            
-        }
-        else if (UIInterfaceOrientationIsPortrait((UIInterfaceOrientation)device.orientation))
-        {
-            //NSLog(@"Change to custom UI for portrait");
-            self.rightGapPercentage = 0.40f;
-            
-        }
-
-        return UIInterfaceOrientationMaskAll;
-    }
-    else
-    {
-        self.rightGapPercentage = 0.85f;
-        return UIInterfaceOrientationMaskPortrait;
-    }
-    
-
-}
+//-(NSUInteger)supportedInterfaceOrientations{
+//    
+//    UIDevice *device = [UIDevice currentDevice];
+//    
+//    if(device.userInterfaceIdiom == UIUserInterfaceIdiomPad)
+//    {
+//        self.bounceOnCenterPanelChange = NO;
+//        if (UIInterfaceOrientationIsLandscape((UIInterfaceOrientation)device.orientation))
+//        {
+//            //NSLog(@"Change to custom UI for landscape");
+//            self.rightGapPercentage = 0.30f;
+//            
+//        }
+//        else if (UIInterfaceOrientationIsPortrait((UIInterfaceOrientation)device.orientation))
+//        {
+//            //NSLog(@"Change to custom UI for portrait");
+//            self.rightGapPercentage = 0.40f;
+//            
+//        }
+//
+//        return UIInterfaceOrientationMaskAll;
+//    }
+//    else
+//    {
+//        self.rightGapPercentage = 0.85f;
+//        return UIInterfaceOrientationMaskPortrait;
+//    }
+//    
+//
+//}
 
 /*
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -121,6 +121,8 @@
 */
 
 -(void) awakeFromNib {
+    [super awakeFromNib];
+    
     ProfileDetailViewController *rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"mainPage"];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: rootViewController];
     navController.navigationBarHidden = YES;

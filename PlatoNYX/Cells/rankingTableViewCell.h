@@ -12,6 +12,9 @@
     NSMutableArray *mainArray;
 }
 
+
+@property (strong, nonatomic) IBOutlet UILabel *activityCaplbl;
+
 @property (strong, nonatomic) IBOutlet UILabel *activityNamelbl;
 @property (strong, nonatomic) IBOutlet UIButton *nameLikeBtn;
 @property (strong, nonatomic) IBOutlet UIButton *nameDislikeBtn;

@@ -8,6 +8,7 @@
 
 #import "NotiListViewController.h"
 #import "NotiTableViewCell.h"
+#import "AppDelegate.h"
 
 @interface NotiListViewController ()<UITableViewDelegate, UITableViewDataSource> {
     
@@ -16,6 +17,8 @@
     
     NSMutableDictionary *selectedDic;
     NSDictionary *UserDic;
+    
+    NSMutableDictionary *paramDic;
 }
 
 @end
@@ -35,7 +38,7 @@
 
 - (void)initData {
     UserDic = appController.currentUser;
-    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
+    paramDic = [[NSMutableDictionary alloc] init];
     [paramDic setObject:[UserDic objectForKey:@"user_id"] forKey:@"user_id"];
     [self requestAPIPost:paramDic];
 }
@@ -61,11 +64,11 @@
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 
@@ -85,7 +88,16 @@
     }else {
         [cell.statusImg setImage:[UIImage imageNamed:@"message_closed"]];
     }
-    cell.subjectlbl.text = [[notiArray objectAtIndex:indexPath.row] objectForKey:@"noti_subject"];
+    cell.subjectlbl.text = @"Etkinlik Bildirimi";//[[notiArray objectAtIndex:indexPath.row] objectForKey:@"noti_subject"];
+    NSString *myString = [[notiArray objectAtIndex:indexPath.row] objectForKey:@"noti_time"];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    NSDate *yourDate = [dateFormatter dateFromString:myString];
+    dateFormatter.dateFormat = @"dd/MMM/yyyy";
+    [dateFormatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"tr-TR"]];
+    NSLog(@"%@",[dateFormatter stringFromDate:yourDate]);
+    
+    cell.datelbl.text = [[NSString alloc] initWithFormat:@"%@", [dateFormatter stringFromDate:yourDate]];
     return cell;
 }
 
@@ -93,17 +105,24 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSString *str = [[notiArray objectAtIndex:indexPath.row] objectForKey:@"noti_content"];
 
-    [commonUtils setUserDefault:@"msg_count" withFormat:[NSString stringWithFormat:@"%lu", (unsigned long)[appController.msgs count]]];
-    [commonUtils showAlert:@"Notification" withMessage:str];
+    UserDic = appController.currentUser;
+    paramDic = [[NSMutableDictionary alloc] init];
+    [paramDic setObject:[UserDic objectForKey:@"user_id"] forKey:@"user_id"];
+    [paramDic setObject:[[notiArray objectAtIndex:indexPath.row] objectForKey:@"noti_id"] forKey:@"noti_id"];
     
-    if( [[[notiArray objectAtIndex:indexPath.row] objectForKey:@"noti_status"] intValue] < 1) {
-        [appController.msgs removeObjectAtIndex:indexPath.row];
-        UserDic = appController.currentUser;
-        NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
-        [paramDic setObject:[UserDic objectForKey:@"user_id"] forKey:@"user_id"];
-        [paramDic setObject:[[notiArray objectAtIndex:indexPath.row] objectForKey:@"noti_id"] forKey:@"noti_id"];
-        [self requestAPIPostForRead:paramDic];
-    }
+    [appController.vAlert doYesNo:str
+                             body:@"Bu Etkinlik Bildirimi silmek istediğinizden emin misiniz?"
+                              yes:^(DoAlertView *alertView) {
+                                  [paramDic setObject:@"del" forKey:@"noti_flag"];
+                                  [self requestAPIPostForRead:paramDic];
+                              }
+                               no:^(DoAlertView *alertView) {
+                                   if( [[[notiArray objectAtIndex:indexPath.row] objectForKey:@"noti_status"] intValue] < 1) {
+                                       //        [appController.msgs removeObjectAtIndex:indexPath.row];
+                                       [self requestAPIPostForRead:paramDic];
+                                   }
+                               }
+     ];
 }
 
 #pragma mark - API Request - get Recommended Post
@@ -127,11 +146,11 @@
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 

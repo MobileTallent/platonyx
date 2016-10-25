@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SideMenuTableViewCell.h"
 #import "MySidePanelController.h"
-#import "ProfileDetailViewController.h"
 
 @interface LeftPanelViewController ()
 
@@ -30,8 +29,7 @@
     
     menuPages = appController.menuPages;
     self.sidePanelController.slideDelegate = self;
-    
-    [self initView];
+
 }
 
 - (void)initView {
@@ -104,34 +102,38 @@
     appController.currentMenuTag = [[menuPages objectAtIndex:indexPath.row] objectForKey:@"tag"];
     [tableView reloadData];
     
-    ProfileDetailViewController *mainViewController;
+    ProfileDetailViewController *mainPage;
+    MyActivityViewController *myActPage;
+    FaqViewController *faqPage;
+    ContactViewController *contactPage;
+    InviteViewController *invitePage;
     
     UINavigationController *navController;
     
     switch (cell.tag) {
         case 1:
-            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"mainPage"];
-            navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+            mainPage = [self.storyboard instantiateViewControllerWithIdentifier:@"mainPage"];
+            navController = [[UINavigationController alloc] initWithRootViewController: mainPage];
             self.sidePanelController.centerPanel = navController;
             break;
         case 2:
-            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"myActPage"];
-            navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+            myActPage = [self.storyboard instantiateViewControllerWithIdentifier:@"myActPage"];
+            navController = [[UINavigationController alloc] initWithRootViewController: myActPage];
             self.sidePanelController.centerPanel = navController;
             break;
         case 3:
-            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"faqPage"];
-            navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+            faqPage = [self.storyboard instantiateViewControllerWithIdentifier:@"faqPage"];
+            navController = [[UINavigationController alloc] initWithRootViewController: faqPage];
             self.sidePanelController.centerPanel = navController;
             break;
         case 4:
-            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contactPage"];
-            navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+            contactPage = [self.storyboard instantiateViewControllerWithIdentifier:@"contactPage"];
+            navController = [[UINavigationController alloc] initWithRootViewController: contactPage];
             self.sidePanelController.centerPanel = navController;
             break;
         case 5:
-            mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"invitePage"];
-            navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+            invitePage = [self.storyboard instantiateViewControllerWithIdentifier:@"invitePage"];
+            navController = [[UINavigationController alloc] initWithRootViewController: invitePage];
             self.sidePanelController.centerPanel = navController;
             break;
         case 6:
@@ -143,6 +145,11 @@
 }
 
 - (void)logout {
+    
+    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
+    [paramDic setObject:[appController.currentUser objectForKey:@"user_id"] forKey:@"user_id"];
+    [self requestAPILogout:paramDic];
+    
     [commonUtils removeUserDefaultDic:@"current_user"];
     [commonUtils removeUserDefaultDic:@"currentUserSettings"];
     appController.currentUser = [[NSMutableDictionary alloc] init];
@@ -153,31 +160,51 @@
 //    [self presentViewController:myController animated:YES completion:nil];
     
 //    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+
+//    [self.navigationController pushViewController:myController animated:YES];
     
 }
 
-#pragma mark - App Share Function
-- (void)defaultShare {
-    NSString *texttoshare = @"I'm using WOOF SOCIAL! I share and discover photos/videos from people around me and watch that content spread. It's free on Apple app store!";
-    UIImage *imagetoshare = [UIImage imageNamed:@"user_default_avatar"];
-    
-    
-    NSArray *activityItems = @[texttoshare, imagetoshare];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-    activityVC.excludedActivityTypes = @[UIActivityTypePostToTencentWeibo, UIActivityTypePostToWeibo];
-    
-    //activityVC.excludedActivityTypes = @[UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypePostToFlickr, UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo, UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList, UIActivityTypeAirDrop];
-    [self presentViewController:activityVC animated:TRUE completion:nil];
+#pragma mark - API Request - get Recommended Post
+- (void)requestAPILogout:(NSMutableDictionary *)dic {
+    [commonUtils showActivityIndicatorColored:self.view];
+    [NSThread detachNewThreadSelector:@selector(requestDataPostForLogout:) toTarget:self withObject:dic];
 }
+
+- (void)requestDataPostForLogout:(id) params {
+    NSDictionary *resObj = nil;
+    resObj = [commonUtils httpJsonRequest:API_URL_USER_LOGOUT withJSON:(NSMutableDictionary *) params];
+    
+    [commonUtils hideActivityIndicator];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (resObj != nil) {
+        NSDictionary *result = (NSDictionary *)resObj;
+        NSDecimalNumber *status = [result objectForKey:@"status"];
+        if([status intValue] == 1) {
+            
+            [self performSelector:@selector(requestOverPostForLogout) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
+        } else {
+            NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
+            if([msg isEqualToString:@""]) msg = @"Lütfen formun tamamını doldurunuz";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
+        }
+    } else {
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
+    }
+}
+
+- (void)requestOverPostForLogout {
+
+}
+
 
 #pragma mark -  Left Side Menu Show
 
 - (void)onMenuShow {
-    if([commonUtils getUserDefault:@"is_my_profile_changed"]) {
-        [commonUtils removeUserDefault:@"is_my_profile_changed"];
-        [self initView];
-    }
+//    if([commonUtils getUserDefault:@"is_my_profile_changed"]) {
+//        [commonUtils removeUserDefault:@"is_my_profile_changed"];
+//        [self initView];
+//    }
 }
 - (void)onMenuHide {
 

@@ -39,21 +39,26 @@
     
     self.isLoadingBase = NO;
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:@"ReceiveNotification" object:nil];
+    [self receivedNotification];
     
-    if([[commonUtils getUserDefault:@"msg_count"] intValue] > 0) {
-        UILabel *yourLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 15, 15)];
-        
-        [yourLabel setTextColor:[UIColor whiteColor]];
-        [yourLabel setText:[commonUtils getUserDefault:@"msg_count"]];
-        [yourLabel setBackgroundColor:appController.appMainColor];
-        [yourLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 10.0f]];
-        [yourLabel setTextAlignment:UITextAlignmentCenter];
-        yourLabel.layer.cornerRadius = yourLabel.bounds.size.height / 2;
-        yourLabel.clipsToBounds = YES;
-        [self.notiBtn addSubview:yourLabel];
-    }
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification) name:@"ReceiveNotification" object:nil];
 }
+
+- (void)receivedNotification {
+//    if([[commonUtils getUserDefault:@"msg_count"] intValue] > 0) {
+//        UILabel *yourLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 15, 15)];
+//        
+//        [yourLabel setTextColor:[UIColor whiteColor]];
+//        [yourLabel setText:[commonUtils getUserDefault:@"msg_count"]];
+//        [yourLabel setBackgroundColor:appController.appMainColor];
+//        [yourLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 10.0f]];
+//        [yourLabel setTextAlignment:NSTextAlignmentCenter];
+//        yourLabel.layer.cornerRadius = yourLabel.bounds.size.height / 2;
+//        yourLabel.clipsToBounds = YES;
+//        [self.notiBtn addSubview:yourLabel];
+//    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -66,7 +71,7 @@
 
 # pragma Top Menu Events
 - (IBAction)menuClicked:(id)sender {
-    if(self.isLoadingBase) return;
+//    if(self.isLoadingBase) return;
     [self.sidePanelController showLeftPanelAnimated: YES];
 }
 - (IBAction)menuBackClicked:(id)sender {
@@ -82,7 +87,9 @@
     mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"notiListVC"];
     navController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
     self.sidePanelController.centerPanel = navController;
-
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [commonUtils setUserDefault:@"msg_count" withFormat:[NSString stringWithFormat:@"%d", 0]];
 }
 - (IBAction)menuSettingsClicked:(id)sender {
     if(self.isLoadingBase) return;

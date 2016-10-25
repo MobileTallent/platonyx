@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PreferenceViewController : UIViewController
+@interface PreferenceViewController : BaseViewController
 
 @end

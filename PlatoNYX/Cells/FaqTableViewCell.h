@@ -12,7 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *facNumlbl;
 @property (strong, nonatomic) IBOutlet UILabel *questionlbl;
-@property (strong, nonatomic) IBOutlet UITextView *contentlbl;
-
+@property (strong, nonatomic) IBOutlet UILabel *answerlbl;
 
 @end

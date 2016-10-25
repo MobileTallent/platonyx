@@ -39,36 +39,36 @@
 //    if(![commonUtils validateEmail:self.emailTxt.text]) {
 //        [commonUtils showVAlertSimple:@"Warning" body:@"Email address is not in a vaild format" duration:1.2];
 //    } else
-    if([commonUtils getUserDefault:@"currentLatitude"] != nil && [commonUtils getUserDefault:@"currentLongitude"] != nil) {
+//    if([commonUtils getUserDefault:@"currentLatitude"] != nil && [commonUtils getUserDefault:@"currentLongitude"] != nil) {
         if([self.passTxt.text length] < 6 || [self.passTxt.text length] > 10) {
-            [commonUtils showVAlertSimple:@"Warning" body:@"Password length must be between 6 and 10 characters" duration:1.2];
+            [commonUtils showVAlertSimple:@"" body:@"Şifre uzunluğu 6 ile 10 karakter arasında olmalı" duration:1.2];
         } else {
             
             NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
             [paramDic setObject:self.emailTxt.text forKey:@"user_email"];
             [paramDic setObject:[commonUtils md5:self.passTxt.text] forKey:@"user_password"];
             
-            [paramDic setObject:[commonUtils getUserDefault:@"currentLongitude"] forKey:@"user_location_long"];
-            [paramDic setObject:[commonUtils getUserDefault:@"currentLatitude"] forKey:@"user_location_lati"];
+//            [paramDic setObject:[commonUtils getUserDefault:@"currentLongitude"] forKey:@"user_location_long"];
+//            [paramDic setObject:[commonUtils getUserDefault:@"currentLatitude"] forKey:@"user_location_lati"];
             
-            if([commonUtils getUserDefault:@"user_apns_id"] != nil) {
-                [paramDic setObject:[commonUtils getUserDefault:@"user_apns_id"] forKey:@"user_apns_id"];
-                
-                NSLog(@"apns_id = %@", [commonUtils getUserDefault:@"user_apns_id"]);
-            } else {
-                [appController.vAlert doAlert:@"Notice" body:@"Failed to get your device token.\nTherefore, you will not be able to receive notification for the new activities." duration:2.0f done:^(DoAlertView *alertView) {
-                }];
-            }
+//            if([commonUtils getUserDefault:@"user_apns_id"] != nil) {
+//                [paramDic setObject:[commonUtils getUserDefault:@"user_apns_id"] forKey:@"user_apns_id"];
+//                
+//                NSLog(@"apns_id = %@", [commonUtils getUserDefault:@"user_apns_id"]);
+//            } else {
+//                [appController.vAlert doAlert:@"" body:@"Donanım anahtarınız (Device Token) alınamadı. Bu yüzden yeni etkinlikler için uyarı alamayacaksınız." duration:2.0f done:^(DoAlertView *alertView) {
+//                }];
+//            }
             [self requestAPILogin:paramDic];
         }
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location is required to share and discover content"
-                                                        message:@"You must allow \"PlatoNYX\" to access your location to use this app."
-                                                       delegate:self
-                                              cancelButtonTitle:@"Go to Settings"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
+//    }else{
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"İçeriği keşfetmeniz ve paylaşmanız için lokasyon bilginiz gerekli."
+//                                                        message:@"\"PlatoNYX\" uygulamasının lokasyon bilginizi almasına izin vermeniz gerekiyor."
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"Go to Settings"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//    }
 }
 
 #pragma mark - API Request - User Login
@@ -99,11 +99,11 @@
             [self performSelector:@selector(requestOverLogin) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {
             NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
-            if([msg isEqualToString:@""]) msg = @"Please complete entire form";
-            [commonUtils showVAlertSimple:@"Failed" body:msg duration:1.4];
+            msg = @"E-posta adresiniz ile şifreniz birbirini tutmuyor";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
         }
     } else {
-        [commonUtils showVAlertSimple:@"Connection Error" body:@"Please check your internet connection status" duration:1.0];
+        [commonUtils showVAlertSimple:@"Bağlantı Hatası" body:@"Lütfen internet bağlantınızı kontrol ediniz" duration:1.0];
     }
 }
 

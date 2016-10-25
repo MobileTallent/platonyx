@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *subjectlbl;
 @property (strong, nonatomic) IBOutlet UIImageView *statusImg;
+@property (strong, nonatomic) IBOutlet UILabel *datelbl;
 
 @end

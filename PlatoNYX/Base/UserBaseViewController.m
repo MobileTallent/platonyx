@@ -32,7 +32,7 @@
 //        [[FBSession activeSession] closeAndClearTokenInformation];
 //        [FBSession setActiveSession:nil];
         
-        [self.navigationController popToRootViewControllerAnimated:NO];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
     
     self.isLoadingUserBase = NO;
