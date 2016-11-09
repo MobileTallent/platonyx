@@ -287,7 +287,9 @@
         [actSettingsDic setValue:[commonUtils md5:oldPassTxt.text] forKey:@"old_password"];
         [actSettingsDic setValue:[commonUtils md5:newPassTxt.text] forKey:@"new_password"];
     }else{
-        
+        NSString *msg = @"Yeni şifreler eşleşmiyor";
+        [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
+        return;
     }
     
     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
@@ -325,6 +327,9 @@
             [commonUtils setUserDefaultDic:@"currentUserSettings" withDic:appController.currentUserSettings];            
             
             NSLog(@"%@", [result objectForKey:@"msg"]);
+            
+            NSString *msg = (NSString *)[resObj objectForKey:@"msg"];
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
             
             [self performSelector:@selector(requestOverPost) onThread:[NSThread mainThread] withObject:nil waitUntilDone:YES];
         } else {

@@ -67,6 +67,10 @@ typedef NS_ENUM(NSInteger, _ScrollingDirection) {
         [_collectionView addGestureRecognizer:_panPressGestureRecognizer];
         
         for (UIGestureRecognizer *gestureRecognizer in _collectionView.gestureRecognizers) {
+            if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+                [gestureRecognizer requireGestureRecognizerToFail:_panPressGestureRecognizer];
+                break;
+            }            
             if ([gestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]]) {
                 [gestureRecognizer requireGestureRecognizerToFail:_longPressGestureRecognizer];
                 break;

@@ -36,6 +36,7 @@
 		4B3A1E5D1D812FAB00B6FF34 /* ActivitySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A1E5C1D812FAB00B6FF34 /* ActivitySettingViewController.m */; };
 		4B3A1E601D81309F00B6FF34 /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A1E5F1D81309F00B6FF34 /* PreferenceViewController.m */; };
 		4B6558421D6CBE46003F43D2 /* rankingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6558411D6CBE46003F43D2 /* rankingTableViewCell.m */; };
+		4B6A02251DD0974300D0A427 /* LXReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6A02241DD0974300D0A427 /* LXReorderableCollectionViewFlowLayout.m */; };
 		4B6B46CF1D55CA1800B4D377 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6B46CE1D55CA1800B4D377 /* AppController.m */; };
 		4B75DF6B1D80D009002D544D /* ProfileSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B75DF6A1D80D009002D544D /* ProfileSettingViewController.m */; };
 		4B8609F31D557D3A002BD5C8 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8608AD1D557D3A002BD5C8 /* AFHTTPRequestOperation.m */; };
@@ -235,6 +236,8 @@
 		4B3A1E5F1D81309F00B6FF34 /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
 		4B6558401D6CBE46003F43D2 /* rankingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rankingTableViewCell.h; sourceTree = "<group>"; };
 		4B6558411D6CBE46003F43D2 /* rankingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rankingTableViewCell.m; sourceTree = "<group>"; };
+		4B6A02231DD0974300D0A427 /* LXReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		4B6A02241DD0974300D0A427 /* LXReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		4B6B46CA1D55C5A300B4D377 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		4B6B46CB1D55C5A300B4D377 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		4B6B46CD1D55CA1800B4D377 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
@@ -655,6 +658,15 @@
 			name = Entry;
 			sourceTree = "<group>";
 		};
+		4B6A02221DD0974300D0A427 /* LXReorderableCollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				4B6A02231DD0974300D0A427 /* LXReorderableCollectionViewFlowLayout.h */,
+				4B6A02241DD0974300D0A427 /* LXReorderableCollectionViewFlowLayout.m */,
+			);
+			path = LXReorderableCollectionViewFlowLayout;
+			sourceTree = "<group>";
+		};
 		4B6B46C91D55C5A300B4D377 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -707,6 +719,7 @@
 		4B8608AA1D557D3A002BD5C8 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4B6A02221DD0974300D0A427 /* LXReorderableCollectionViewFlowLayout */,
 				4BF708B71DAFF417000B6CCC /* SidePanels */,
 				4BD103391D63D5F20032280E /* DraggableCollectionView */,
 				4B8608AB1D557D3A002BD5C8 /* AFNetworking */,
@@ -1395,6 +1408,7 @@
 				4B17B7021D691E5D00955AA5 /* NZCircularImageView.m in Sources */,
 				4B860A121D557D3A002BD5C8 /* NSObject+SBJSON.m in Sources */,
 				4B860A101D557D3A002BD5C8 /* OverlayView.m in Sources */,
+				4B6A02251DD0974300D0A427 /* LXReorderableCollectionViewFlowLayout.m in Sources */,
 				4BD103491D63D5F20032280E /* UICollectionView+Draggable.m in Sources */,
 				4B2021E11D5344B300A357AE /* TPKeyboardAvoidingScrollView.m in Sources */,
 				4BB196791D651FE00025C79A /* ActivityDetailViewController.m in Sources */,

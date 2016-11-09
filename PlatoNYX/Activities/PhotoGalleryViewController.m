@@ -11,7 +11,7 @@
 
 #define _isCameraAvailable [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]
 
-@interface PhotoGalleryViewController () <UICollectionViewDataSource_Draggable, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout>{
+@interface PhotoGalleryViewController () <UICollectionViewDataSource_Draggable, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout>{
     
     IBOutlet UIView *popupView;
     
@@ -301,7 +301,7 @@
     }
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (BOOL)collectionView:(LSCollectionViewHelper *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
     if(toIndexPath.item < [mainArray count]){
         return YES;
@@ -318,7 +318,7 @@
     }
 }
 
-- (void)collectionView:(LSCollectionViewHelper *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
     if(fromIndexPath.item < [mainArray count] && toIndexPath.item < [mainArray count]){
         NSMutableDictionary *dic = [mainArray objectAtIndex:fromIndexPath.item];
@@ -340,6 +340,24 @@
     }else{
         [commonUtils showVAlertSimple:@"" body:@"Boş fotoğrafı yerinden oynatmanız mümkün değil." duration:1.4];
     }
+}
+
+#pragma mark - LXReorderableCollectionViewDelegateFlowLayout methods
+
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willBeginDraggingItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"will begin drag");
+}
+
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout didBeginDraggingItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"did begin drag");
+}
+
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"will end drag");
+}
+
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout didEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"did end drag");
 }
 
 @end

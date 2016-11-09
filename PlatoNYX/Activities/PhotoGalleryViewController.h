@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UICollectionView+Draggable.h"
 #import "PhotoCollectionViewCell.h"
+#import "LXReorderableCollectionViewFlowLayout.h"
 
 @interface PhotoGalleryViewController : BaseViewController{
     
