@@ -70,7 +70,7 @@
                      [@{@"tag" : @"1", @"text" : @"0-2.000 TL"} mutableCopy],
                      [@{@"tag" : @"2", @"text" : @"2.000-6.000 TL"} mutableCopy],
                      [@{@"tag" : @"3", @"text" : @"6.000-10.000 TL"} mutableCopy],
-                     [@{@"tag" : @"4", @"text" : @"10,000 TL"} mutableCopy],
+                     [@{@"tag" : @"4", @"text" : @"+10,000 TL"} mutableCopy],
                      [@{@"tag" : @"5", @"text" : @"Farketmez"} mutableCopy]
                      ] mutableCopy];
     

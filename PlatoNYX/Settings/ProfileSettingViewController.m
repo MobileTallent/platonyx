@@ -94,9 +94,7 @@
                     [@{@"tag" : @"1", @"text" : @"Lise Mezunu"} mutableCopy],
                     [@{@"tag" : @"2", @"text" : @"Üniv. Mezunu"} mutableCopy],
                     [@{@"tag" : @"3", @"text" : @"Y. Lisans"} mutableCopy],
-                    [@{@"tag" : @"4", @"text" : @"Doktora"} mutableCopy],
-                    [@{@"tag" : @"5", @"text" : @"Farketmez"} mutableCopy]
-                    ] mutableCopy];
+                    [@{@"tag" : @"4", @"text" : @"Doktora"} mutableCopy]                    ] mutableCopy];
     incomeArray = [[NSMutableArray alloc] init];
     incomeArray = [@[
                      [@{@"tag" : @"1", @"text" : @"0-2.000 TL"} mutableCopy],
@@ -282,14 +280,20 @@
     if(![aboutTxtView.text isEqualToString:@""]){
         [actSettingsDic setValue:aboutTxtView.text forKey:@"user_about"];
     }
-
-    if([newPassTxt.text isEqualToString:confirmPassTxt.text] && ![oldPassTxt.text isEqualToString:@""]){
-        [actSettingsDic setValue:[commonUtils md5:oldPassTxt.text] forKey:@"old_password"];
-        [actSettingsDic setValue:[commonUtils md5:newPassTxt.text] forKey:@"new_password"];
-    }else{
-        NSString *msg = @"Yeni şifreler eşleşmiyor";
-        [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
-        return;
+    if(![oldPassTxt.text isEqualToString:@""]){
+        if([newPassTxt.text isEqualToString:confirmPassTxt.text] && ![newPassTxt.text isEqualToString:@""]){
+            if([newPassTxt.text length] < 6 || [newPassTxt.text length] > 10) {
+                [commonUtils showVAlertSimple:@"" body:@"Şifre uzunluğu 6 ile 10 karakter arasında olmalı" duration:1.2];
+                return;
+            }else{
+                [actSettingsDic setValue:[commonUtils md5:oldPassTxt.text] forKey:@"old_password"];
+                [actSettingsDic setValue:[commonUtils md5:newPassTxt.text] forKey:@"new_password"];
+            }
+        }else{
+            NSString *msg = @"Yeni şifreler eşleşmiyor";
+            [commonUtils showVAlertSimple:@"Hata" body:msg duration:1.4];
+            return;
+        }
     }
     
     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
